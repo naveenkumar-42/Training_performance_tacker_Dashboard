@@ -1,9 +1,13 @@
-/* Container Styling */
+body,html{
+  height: 100%;
+  margin: 0;
+  align-items: center;
+}
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   background-color: var(--color-darkslategray-300);
   padding: 20px;
 }
