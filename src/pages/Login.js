@@ -1,83 +1,52 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import SocialMediaSignuplogin from "../components/SocialMediaSignuplogin";
-import HaveAnAccountLogin from "../components/HaveAnAccountLogin";
+import { Client, Account } from 'appwrite'; // Appwrite SDK for authentication
 import "./Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const onSocialButtonContainerClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
+  const client = new Client();
+  client
+    .setEndpoint('https://cloud.appwrite.io/v1') // Your Appwrite endpoint
+    .setProject('66ef10510008d8d30400'); // Your Appwrite project ID
+
+  const account = new Account(client);
+
+  const handleGoogleLogin = useCallback(async () => {
+    try {
+      await account.createOAuth2Session('google', 'http://localhost:3000/profile/', 'http://localhost:3000/');
+      // If successful, user is redirected
+    } catch (error) {
+      console.error('Google OAuth failed:', error.message);
+    }
+  }, [account]);
 
   return (
-    <div className="login">
-      <main className="image4">
-        <div className="sign-up-overlay">
-          <div className="social-login">
-            <div className="credentials">
-              <div className="welcome-content-wrapper">
-                <div className="welcome-content">
-                  <img
-                    className="image-11-icon"
-                    loading="lazy"
-                    alt=""
-                    src="/image-11@2x.png"
-                  />
-                  <h3 className="welcome-to-training-container">
-                    <p className="welcome-to-training">{`Welcome to Training `}</p>
-                    <p className="welcome-to-training">Performance tracker</p>
-                  </h3>
-                  <div className="have-an-account-login">
-                    <div className="already-have-an">Sign up to see more</div>
-                  </div>
-                </div>
-              </div>
-              <div className="login-button">
-                <div className="password-input">
-                  <div className="username">{`   Username `}</div>
-                </div>
-              </div>
-              <div className="login-button">
-                <div className="password-input">
-                  <div className="username">{`   Password `}</div>
-                </div>
-              </div>
-              <div className="username-input">
-                <div className="login-container">
-                  <div className="login-button">
-                    <button className="login-wrapper">
-                      <div className="login1">
-                        <span className="span1">{`   `}</span>
-                        <span className="login2">Login</span>
-                      </div>
-                    </button>
-                  </div>
-                  <div className="forget-password-parent">
-                    <div className="forget-password">Forget password ?</div>
-                    <div className="separator">
-                      ---------------------------------
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="username-input1">
-                <div
-                  className="social-button"
-                  onClick={onSocialButtonContainerClick}
-                >
-                  <SocialMediaSignuplogin />
-                </div>
-              </div>
-              <div className="login-actions">
-                <HaveAnAccountLogin />
-              </div>
-            </div>
-          </div>
-          <img className="icons" loading="lazy" alt="" src="/icons.svg" />
+    <div className="login-container">
+      <div className="login-form">
+        <div className="logo-section">
+          <img className="logo" alt="logo" src="/image-11@2x.png" />
+          <h3 className="welcome-message">Welcome to Training Performance Tracker</h3>
         </div>
-      </main>
+
+        <div className="input-section">
+          <input type="text" className="input-field" placeholder="Username" />
+          <input type="password" className="input-field" placeholder="Password" />
+          <button className="login-btn">Login</button>
+          <div className="forgot-password">Forgot password?</div>
+        </div>
+
+        <div className="separator">OR</div>
+
+        {/* Google OAuth Login */}
+        <div className="social-media-signuplogin" onClick={handleGoogleLogin}>
+          <div className="google-button">
+            <img className="social-media-logo" alt="google-logo" src="/google-logo.svg" />
+            <span className="continue-with-google">Continue with Google</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
