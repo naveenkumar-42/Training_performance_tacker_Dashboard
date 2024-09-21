@@ -20,7 +20,7 @@ const Admin = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const onSelectionClick = useCallback((rollNo) => {
-    navigate(`/`);
+    navigate(`/profile`);
   }, [navigate]);
 
   const filteredStudents = studentsData.filter(student =>

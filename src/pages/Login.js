@@ -1,10 +1,12 @@
-import { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Client, Account } from 'appwrite'; // Appwrite SDK for authentication
+import { FcGoogle } from "react-icons/fc";
 import "./Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const client = new Client();
   client
@@ -13,10 +15,39 @@ const Login = () => {
 
   const account = new Account(client);
 
+  // Check if the user is already logged in by checking for a session
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        const session = await account.get(); // Check current session
+        console.log('User session found:', session);
+        localStorage.setItem('userSession', JSON.stringify(session)); // Persist session in localStorage
+        setIsAuthenticated(true); // Mark the user as authenticated
+        navigate('/profile'); // Redirect after login
+      } catch (error) {
+        console.error('No session found:', error.message);
+        setIsAuthenticated(false); // No session found, user is not authenticated
+      }
+    };
+
+    const storedSession = localStorage.getItem('userSession');
+    if (storedSession) {
+      const session = JSON.parse(storedSession);
+      console.log('Restored session from localStorage:', session);
+      setIsAuthenticated(true);
+    } else {
+      checkSession(); // Check session on page load
+    }
+  }, [account, navigate]);
+
+  // Handle Google OAuth Login
   const handleGoogleLogin = useCallback(async () => {
     try {
       await account.createOAuth2Session('google', 'http://localhost:3000/profile/', 'http://localhost:3000/');
-      // If successful, user is redirected
+      const session = await account.get();  // Get session after login
+      localStorage.setItem('userSession', JSON.stringify(session));  // Persist session
+      console.log('Google OAuth session created:', session);
+      setIsAuthenticated(true); // Mark user as authenticated
     } catch (error) {
       console.error('Google OAuth failed:', error.message);
     }
@@ -42,7 +73,7 @@ const Login = () => {
         {/* Google OAuth Login */}
         <div className="social-media-signuplogin" onClick={handleGoogleLogin}>
           <div className="google-button">
-            <img className="social-media-logo" alt="google-logo" src="/google-logo.svg" />
+            <FcGoogle className="social-media-logo" />
             <span className="continue-with-google">Continue with Google</span>
           </div>
         </div>
