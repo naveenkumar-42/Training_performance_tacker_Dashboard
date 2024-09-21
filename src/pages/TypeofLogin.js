@@ -7,7 +7,7 @@ function App() {
   const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLoginRedirect = () => {
-    navigate('/'); // Navigate to the login page
+    navigate('/login'); // Navigate to the login page
   };
 
   return (

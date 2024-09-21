@@ -46,7 +46,7 @@ const NavBar = () => {
       window.location.href = "https://accounts.google.com/logout";
       
       setIsAuthenticated(false); // Mark user as logged out
-      navigate('/login'); // Redirect to login
+      navigate('/'); // Redirect to login
     } catch (error) {
       console.error('Logout failed:', error.message);
     }
@@ -56,7 +56,6 @@ const NavBar = () => {
     { icon: <FaHome />, label: "Profile", path: "/profile" },
     { icon: <FaUser />, label: "Admin", path: "/Admin" },
     { icon: <FaChartBar />, label: "Resource", path: "/details" },
-    { icon: <FaCog />, label: "Settings", path: "/typeoflogin" },
     { icon: <FiLogOut />, label: "Logout", path: "/", action: handleLogout },
   ];
 

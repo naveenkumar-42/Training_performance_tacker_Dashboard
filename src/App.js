@@ -28,23 +28,23 @@ function App() {
 
     switch (pathname) {
       case "/":
-        title = "";
+        title = "Type of Login";
         metaDescription = "";
         break;
       case "/admin":
-        title = "";
+        title = "Admin Dashboard";
         metaDescription = "";
         break;
       case "/details":
-        title = "";
+        title = "Rescourse Details";
         metaDescription = "";
         break;
-      case "/typeoflogin":
-        title = "";
+      case "/login":
+        title = "Login Page";
         metaDescription = "";
         break;
       case "/profile":
-        title = "";
+        title = "Student Dashboard";
         metaDescription = "";
         break;
     }
@@ -65,10 +65,10 @@ function App() {
 
   return (
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<TypeofLogin/>} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/details" element={<Details />} />
-        <Route path="/typeoflogin" element={<TypeofLogin />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<StudentDashboard />} />
       </Routes>
   );
