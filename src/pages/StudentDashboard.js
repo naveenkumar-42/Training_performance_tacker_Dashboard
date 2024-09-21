@@ -59,10 +59,7 @@ const StudentDashboard = () => {
 
   return (
     <section className="student-dashboard">
-      <div className="sidebar-container">
-        <SideBar />
-      </div>
-      <div class="main-content">
+        {/* <SideBar /> */}
       {/* Top Section */}
       <section className="top">
         <div className="p_img_detail">
@@ -199,7 +196,6 @@ const StudentDashboard = () => {
     </div>
   </div>
 </section>
-</div>
     </section>
   );
 };
