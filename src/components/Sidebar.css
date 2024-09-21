@@ -1,0 +1,78 @@
+/* Horizontal Sidebar/Nav Bar */
+.sidebar {
+  width: 100%; /* Full width */
+  height: 60px; /* Fixed height for horizontal layout */
+  background-color: var(--color-darkslategray-300);
+  display: flex;
+  flex-direction: row; /* Horizontal layout */
+  align-items: center;
+  justify-content: space-between; /* Space between logo and nav items */
+  padding: 0 20px; /* Padding for left and right */
+  position: fixed; /* Keep it at the top of the page */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure it stays on top of content */
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px; /* Adjust logo size */
+  width: 40px;
+}
+
+.title {
+  margin-left: 10px;
+}
+
+.title-text {
+  color: #ecf0f1; /* Adjust text color */
+  font-size: 16px;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row; /* Align nav items in a row */
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: #ecf0f1; /* Text color */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.nav-item:hover {
+  background-color: #34495e; /* Hover background */
+}
+
+.icon {
+  font-size: 20px; /* Icon size */
+  margin-right: 5px;
+}
+
+.label {
+  display: inline-block; /* Ensure label stays on the same line */
+  font-size: 14px;
+}
+
+/* Ensure content below the nav bar is not hidden under it */
+body {
+  padding-top: 60px; /* Account for fixed nav bar height */
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    height: 50px;
+  }
+
+  .nav-item {
+    padding: 8px 10px;
+  }
+}

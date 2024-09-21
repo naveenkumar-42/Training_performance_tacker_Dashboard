@@ -1,0 +1,23 @@
+/* pieChart.css */
+
+.Piechart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 600px; /* You can adjust the max-width as needed */
+  margin: 0 auto; /* Center the chart horizontally */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  border-radius: 10px; /* Rounds the corners of the container */
+  background-color: #fff; /* Set the background color to white */
+}
+
+/* For responsiveness */
+@media (max-width: 768px) {
+  .Piechart-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,15 @@
+.chart-container {
+  text-align: center;
+}
+
+.chart-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-whitesmoke);
+}
+
+.chart-legend {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-whitesmoke);
+}

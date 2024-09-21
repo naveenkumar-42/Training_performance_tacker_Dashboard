@@ -1,0 +1,211 @@
+.image-11-icon1 {
+  width: 98px;
+  height: 92px;
+  position: relative;
+  object-fit: cover;
+}
+.welcome-to-training1 {
+  margin: 0;
+}
+.welcome-to-training-container1 {
+  align-self: stretch;
+  position: relative;
+  line-height: 41px;
+  font-weight: 500;
+}
+.already-have-an1 {
+  position: relative;
+  display: inline-block;
+  min-width: 71px;
+}
+.have-an-account-login1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs);
+  text-align: left;
+  font-size: var(--font-size-base);
+}
+.image-11-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-11xs);
+}
+.ega-inner {
+  align-self: stretch;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ega {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.frame-child4 {
+  align-self: stretch;
+  width: 231px;
+  position: relative;
+  border-radius: var(--br-37xl);
+  background-color: var(--color-white);
+  display: none;
+}
+.student-male-icon {
+  height: 51px;
+  width: 40px;
+  position: relative;
+  object-fit: cover;
+  z-index: 1;
+}
+.student {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  line-height: 41px;
+  display: inline-block;
+  font-weight: 500;
+  font-family: var(--font-poppins);
+  color: var(--color-black);
+  text-align: center;
+  min-width: 99px;
+  z-index: 1;
+}
+.student-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0px 0px var(--padding-8xs-5);
+}
+.rectangle-group {
+  cursor: pointer;
+  border: none;
+  padding: 0px var(--padding-9xl) var(--padding-12xs);
+  background-color: var(--color-white);
+  flex: 1;
+  border-radius: var(--br-37xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-4xs);
+}
+.frame-wrapper4 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px var(--padding-3xs);
+}
+.admin-parent {
+  width: 251px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base-5);
+}
+.frame-wrapper3 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px var(--padding-xl) 0px var(--padding-2xl);
+}
+.ega-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-23xl);
+}
+.signup-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs) 0px 0px;
+  box-sizing: border-box;
+  min-width: 291px;
+  max-width: 100%;
+}
+.icons1 {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.content {
+  height: 28px;
+  width: 230px;
+  display: none;
+  z-index: 1;
+}
+.signup {
+  width: 544px;
+  border-radius: var(--br-5xl);
+  background-color: var(--color-darkslategray-300);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-base) var(--padding-base) var(--padding-119xl)
+    var(--padding-21xl);
+  box-sizing: border-box;
+  gap: var(--gap-base);
+  max-width: 100%;
+  z-index: 1;
+  text-align: center;
+  font-size: var(--font-size-13xl);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}
+
+@media screen and (max-width: 750px) {
+  .welcome-to-training-container1 {
+    font-size: var(--font-size-7xl);
+    line-height: 33px;
+  }
+}
+@media screen and (max-width: 675px) {
+  .signup {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-71xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .welcome-to-training-container1 {
+    font-size: var(--font-size-lgi);
+    line-height: 25px;
+  }
+
+  .student {
+    font-size: var(--font-size-xl);
+    line-height: 33px;
+  }
+
+  .rectangle-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ega-parent {
+    gap: var(--gap-2xl);
+  }
+}

@@ -1,0 +1,32 @@
+.already {
+  color: var(--color-white);
+}
+.span2 {
+  color: var(--color-darkslategray-200);
+}
+.remember {
+  color: var(--color-gray-100);
+}
+.span4 {
+  color: var(--color-dimgray);
+}
+.log-in {
+  text-decoration: underline;
+  white-space: pre-wrap;
+}
+.already-have-an-container {
+  position: relative;
+  white-space: nowrap;
+}
+.have-an-account-login2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs);
+  cursor: pointer;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-gray-100);
+  font-family: var(--font-poppins);
+}

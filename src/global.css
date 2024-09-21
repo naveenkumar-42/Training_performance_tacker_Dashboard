@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Inder:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Avenir:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@700&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-inder: Inder;
+  --font-poppins: Poppins;
+  --font-avenir: Avenir;
+  --font-inter: Inter;
+  --font-inria-sans: "Inria Sans";
+
+  /* font sizes */
+  --font-size-5xl: 24px;
+  --font-size-lgi: 19px;
+  --font-size-base: 16px;
+  --font-size-xl: 20px;
+  --font-size-13xl: 32px;
+  --font-size-7xl: 26px;
+  --font-size-smi: 13px;
+  --font-size-lg: 18px;
+  --font-size-6xl: 25px;
+  --font-size-3xl: 22px;
+  --font-size-3xs: 10px;
+  --font-size-sm: 14px;
+  --font-size-11xl: 30px;
+  --font-size-8xl: 27px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-darkslategray-100: #383852;
+  --color-darkslategray-200: #333;
+  --color-darkslategray-300: #2e2e46;
+  --color-gainsboro: #d9d9d9;
+  --color-gray-100: #fefefe;
+  --color-gray-200: #202033;
+  --color-gray-300: #111;
+  --color-mediumslateblue-100: #4b5ae0;
+  --color-limegreen-100: #18c302;
+  --color-tomato: #eb4335;
+  --color-black: #000;
+  --color-dimgray: #666;
+  --color-lavender: #d5e5ff;
+  --color-lightsteelblue: #bdcce6;
+  --color-blueviolet: #344bfd;
+  --color-whitesmoke: #e9ecf1;
+  --color-darkgray: #aba8b4;
+
+  /* Gaps */
+  --gap-19xl: 38px;
+  --gap-lgi: 19px;
+  --gap-8xl: 27px;
+  --gap-4xl: 23px;
+  --gap-xl: 20px;
+  --gap-56xl: 75px;
+  --gap-18xl: 37px;
+  --gap-20xl: 39px;
+  --gap-sm-5: 13.5px;
+  --gap-smi: 13px;
+  --gap-2xl: 21px;
+  --gap-10xl: 29px;
+  --gap-3xs: 10px;
+  --gap-9xl: 28px;
+  --gap-2xs: 11px;
+  --gap-sm: 14px;
+  --gap-3xl: 22px;
+  --gap-29xl: 48px;
+  --gap-5xl: 24px;
+  --gap-8xs: 5px;
+  --gap-xs: 12px;
+  --gap-mini: 15px;
+  --gap-7xs: 6px;
+  --gap-5xs: 8px;
+  --gap-4xs: 9px;
+  --gap-9xs: 4px;
+  --gap-6xs: 7px;
+  --gap-base: 16px;
+  --gap-23xl: 42px;
+  --gap-base-5: 15.5px;
+  --gap-11xs: 2px;
+  --gap-mid: 17px;
+  --gap-28xl: 47px;
+  --gap-7xl: 26px;
+
+  /* Paddings */
+  --padding-3xs: 10px;
+  --padding-xl: 20px;
+  --padding-5xs: 8px;
+  --padding-lgi: 19px;
+  --padding-4xs: 9px;
+  --padding-7xs: 6px;
+  --padding-11xs: 2px;
+  --padding-8xs: 5px;
+  --padding-12xs: 1px;
+  --padding-2xs: 11px;
+  --padding-9xs: 4px;
+  --padding-8xs-5: 4.5px;
+  --padding-smi: 13px;
+  --padding-mid: 17px;
+  --padding-sm: 14px;
+  --padding-xs: 12px;
+  --padding-6xs-5: 6.5px;
+  --padding-325xl: 344px;
+  --padding-205xl: 224px;
+  --padding-2xs-5: 10.5px;
+  --padding-5xs-5: 7.5px;
+  --padding-lg: 18px;
+  --padding-3xs-5: 9.5px;
+  --padding-4xs-5: 8.5px;
+  --padding-smi-5: 12.5px;
+  --padding-11xl: 30px;
+  --padding-mini: 15px;
+  --padding-10xs: 3px;
+  --padding-base: 16px;
+  --padding-17xl: 36px;
+  --padding-19xl: 38px;
+  --padding-6xs: 7px;
+  --padding-18xl: 37px;
+  --padding-7xl: 26px;
+  --padding-16xl: 35px;
+  --padding-12xl: 31px;
+  --padding-8xl: 27px;
+  --padding-9xl: 28px;
+  --padding-27xl: 46px;
+  --padding-4xl: 23px;
+  --padding-13xl: 32px;
+  --padding-5xl: 24px;
+  --padding-6xl: 25px;
+  --padding-34xl: 53px;
+  --padding-47xl: 66px;
+  --padding-42xl: 61px;
+  --padding-14xl: 33px;
+  --padding-46xl: 65px;
+  --padding-44xl: 63px;
+  --padding-45xl: 64px;
+  --padding-43xl: 62px;
+  --padding-112xl: 131px;
+  --padding-66xl: 85px;
+  --padding-119xl: 138px;
+  --padding-21xl: 40px;
+  --padding-71xl: 90px;
+  --padding-2xl: 21px;
+  --padding-9xs-5: 3.5px;
+  --padding-48xl: 67px;
+  --padding-49xl: 68px;
+  --padding-6xs-4: 6.4px;
+  --padding-26xl: 45px;
+  --padding-41xl: 60px;
+  --padding-35xl: 54px;
+  --padding-407xl: 426px;
+  --padding-258xl: 277px;
+
+  /* Border radiuses */
+  --br-mid: 17px;
+  --br-5xs: 8px;
+  --br-8xs: 5px;
+  --br-6xs: 7px;
+  --br-5xl: 24px;
+  --br-37xl: 56px;
+  --br-21xl: 40px;
+  --br-10xs-8: 2.8px;
+  --br-10xs: 3px;
+}

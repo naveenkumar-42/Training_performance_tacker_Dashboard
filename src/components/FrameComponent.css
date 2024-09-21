@@ -1,0 +1,189 @@
+.left1 {
+  width: 298px;
+  height: 904px;
+  position: relative;
+  background-color: var(--color-darkslategray-300);
+  display: none;
+}
+.image-12-icon1 {
+  height: 50px;
+  width: 49px;
+  position: relative;
+  object-fit: cover;
+  z-index: 2;
+}
+.student-dashboard5 {
+  text-decoration: none;
+  position: relative;
+  color: inherit;
+  z-index: 2;
+}
+.student-detail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-smi-5) 0px 0px;
+}
+.student-details-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-3xs);
+}
+.person-icon1 {
+  height: 42px;
+  width: 36px;
+  position: relative;
+  object-fit: cover;
+}
+.profile1 {
+  text-decoration: none;
+  position: relative;
+  font-size: var(--font-size-xl);
+  font-family: var(--font-inder);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  min-width: 61px;
+}
+.icon-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-4xs-5) 0px 0px;
+}
+.navigation-icons {
+  cursor: pointer;
+  border: none;
+  padding: var(--padding-3xs-5) var(--padding-3xs);
+  background-color: var(--color-darkslategray-100);
+  align-self: stretch;
+  border-radius: var(--br-mid);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-3xs);
+  z-index: 2;
+}
+.nas-icon1 {
+  margin-top: -21px;
+  height: 67px;
+  width: 40px;
+  position: relative;
+  object-fit: cover;
+}
+.resource1 {
+  position: relative;
+  display: inline-block;
+  min-width: 84px;
+}
+.navigation-icons1 {
+  align-self: stretch;
+  height: 61px;
+  border-radius: var(--br-mid);
+  background-color: var(--color-darkslategray-100);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-lg) var(--padding-3xs);
+  box-sizing: border-box;
+  gap: var(--gap-3xs);
+  white-space: nowrap;
+  cursor: pointer;
+  z-index: 2;
+}
+.icon-search {
+  height: 40px;
+  width: 40.1px;
+  position: relative;
+}
+.search {
+  position: relative;
+  font-size: var(--font-size-xl);
+  font-family: var(--font-inder);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  min-width: 64px;
+}
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs-5) 0px 0px;
+}
+.navigation-icons2 {
+  cursor: pointer;
+  border: none;
+  padding: var(--padding-2xs-5) var(--padding-3xs);
+  background-color: var(--color-mediumslateblue-100);
+  align-self: stretch;
+  border-radius: var(--br-mid);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-3xs);
+  top: 0;
+  z-index: 99;
+  position: sticky;
+}
+.navigation-icons-parent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-lgi);
+}
+.level-header {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px var(--padding-sm) var(--padding-325xl);
+}
+.left-parent {
+  width: 298px;
+  background-color: var(--color-darkslategray-300);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-sm) var(--padding-sm) var(--padding-xs);
+  box-sizing: border-box;
+  gap: var(--gap-10xl);
+  z-index: 1;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
+  font-family: var(--font-inder);
+}
+
+@media screen and (max-width: 1025px) {
+  .left-parent {
+    display: none;
+  }
+}
+@media screen and (max-width: 750px) {
+  .level-header {
+    padding-bottom: var(--padding-205xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .student-dashboard5 {
+    font-size: var(--font-size-base);
+  }
+
+  .profile1 {
+    font-size: var(--font-size-base);
+  }
+}
