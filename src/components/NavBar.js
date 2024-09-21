@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";  // Import NavLink
 import { FaHome, FaUser, FaChartBar, FaCog } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 import "./NavBar.css";
 
 const HorizontalNavbar = () => {
@@ -8,7 +9,8 @@ const HorizontalNavbar = () => {
     { icon: <FaHome />, label: "Profile", path: "/" },
     { icon: <FaUser />, label: "Admin", path: "/Admin" },
     { icon: <FaChartBar />, label: "Resource", path: "/details" },
-    { icon: <FaCog />, label: "Settings", path: "/settings" },
+    { icon: <FaCog />, label: "Settings", path: "/typeoflogin" },
+    { icon: <FiLogOut />, label: "Logout", path: "/login" },
   ];
 
   return (

@@ -9,18 +9,12 @@
   padding: 5px;
   z-index: 1000; 
   border: 1px solid var(--color-white);
-  
-}
-.active {
-  color: #f39c12; /* Active item color */
-  background-color: #2c3e50; 
-  padding: 5px;/* Active item background */
-  border-radius: 5px ;
-  border:1px solid #34495e;
 }
 
 .nav-items-container{
   margin-left: 60px;
+  flex-grow: 1;
+
 }
 .logo {
   height: 50px;
@@ -37,6 +31,8 @@
   display: flex;
   gap: 50px;
   text-decoration: none;
+  justify-content: space-between; /* Distribute space */
+  flex-grow: 1; /* Allow this to grow to push logout to the end */
 }
 
 .nav-item {
@@ -71,6 +67,26 @@
   display: none; /* Hidden by default on smaller screens */
 }
 
+.nav-item:last-child {
+  margin-left: auto;
+  margin-right: 30px; /* Ensures the last item is pushed to the end */
+  background-color: #ff4d4d; /* Optional: highlight logout */
+  color: white; /* Optional: text color */
+}
+
+.nav-item:last-child:hover {
+  background-color: #ff1a1a; /* Optional: hover effect */
+}
+
+
+
+.active {
+  color: #f39c12; /* Active item color */
+  background-color: #2c3e50; 
+  padding: 5px;/* Active item background */
+  border-radius: 5px ;
+  border:1px solid #34495e;
+}
 @media (min-width: 768px) {
   .label {
     display: inline;
