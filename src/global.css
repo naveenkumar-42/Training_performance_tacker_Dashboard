@@ -50,6 +50,7 @@ body {
   --color-blueviolet: #344bfd;
   --color-whitesmoke: #e9ecf1;
   --color-darkgray: #aba8b4;
+  
 
   /* Gaps */
   --gap-19xl: 38px;
@@ -165,4 +166,33 @@ body {
   --br-21xl: 40px;
   --br-10xs-8: 2.8px;
   --br-10xs: 3px;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height of the scrollbar (for horizontal bars) */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-darkslategray-300); /* Track background to match your theme */
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #34495e; /* Thumb (draggable part) */
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid var(--color-darkslategray-300); /* Border to create some space between thumb and track */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2c3e50; /* Darker color on hover */
+}
+
+/* Horizontal scrollbar (optional) */
+::-webkit-scrollbar-horizontal {
+  height: 8px;
 }
