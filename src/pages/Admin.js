@@ -1,265 +1,71 @@
-import { useCallback } from "react";
-import FrameComponent from "../components/FrameComponent";
+import { useCallback, useState } from "react";
+import NavBar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
+import { FaSearch, FaUser, FaChartBar, FaCog } from "react-icons/fa";
 import "./Admin.css";
+
+const studentsData = [
+  { rollNo: "7376222IT210", name: "Naveen Kumar P", level: 7 },
+  { rollNo: "7376221EC113", name: "Aravind Chidambaram R", level: 7 },
+  { rollNo: "7376221CS262", name: "Prasanna Kumar M", level: 6 },
+  { rollNo: "7376221EC196", name: "Kavibharathi M S", level: 5 },
+  { rollNo: "7376221AG106", name: "Harish R", level: 5 },
+  { rollNo: "7376221BT167", name: "Selvahareesh K", level: 4 },
+  { rollNo: "7376221CS263", name: "Praveen Kumar S", level: 4 },
+  { rollNo: "7376222IT237", name: "Sabarish", level: 5 },
+];
 
 const Admin = () => {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const onSelectionClick = useCallback(() => {
-    navigate("/");
+  const onSelectionClick = useCallback((rollNo) => {
+    navigate(`/`);
   }, [navigate]);
+
+  const filteredStudents = studentsData.filter(student =>
+    student.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="admin">
       <main className="image">
-        <FrameComponent />
-        <div className="image-child" />
+        <NavBar />
         <section className="students-header-wrapper">
           <div className="students-header">
-            <div className="e-c-department">
-              <div className="table-row">
-                <header className="search-bar">
-                  <div className="table-header-item">
-                    <a className="students">Students</a>
-                  </div>
-                  <div className="ellipse-parent">
-                    <div className="frame-child" />
-                    <img
-                      className="moon-symbol-icon"
-                      loading="lazy"
-                      alt=""
-                      src="/moon-symbol@2x.png"
-                    />
-                  </div>
-                </header>
-              </div>
-              <div className="search-container">
-                <div className="search-row">
-                  <div className="c-wrapper">
-                    <div className="c">
-                      <span className="span">{`               `}</span>
-                      <span className="c1">C</span>
-                    </div>
-                  </div>
-                  <img className="search-icon" alt="" src="/search@2x.png" />
+            <div className="students-header-wrapper">
+              <h1 className="a-title">Students List</h1>
+              <div className="search-bar">
+                <div className="search-container">
+                  <input
+                    type="text"
+                    className="search-input"
+                    placeholder="Search..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  /><FaSearch />
                 </div>
               </div>
             </div>
-            <div className="students-list">
-              <div className="table-header-cell">
-                <div className="list-header-row">
-                  <div className="c-s-student-row">
-                    <div className="table-header-row">
-                      <div className="e-c-student-item">
-                        <div className="select-all-toggle" />
-                      </div>
-                      <div className="select-all">Select all</div>
-                    </div>
-                    <div className="filter-wrapper">
-                      <img
-                        className="filter-icon"
-                        loading="lazy"
-                        alt=""
-                        src="/filter@2x.png"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="student-record">
-                  <div className="record-fields">
-                    <div className="e-c-department-row">
-                      <img
-                        className="e-c-department-row-child"
-                        loading="lazy"
-                        alt=""
-                        src="/line-1.svg"
-                      />
-                      <div className="b-t-department">
-                        <div className="e-c-department-item">
-                          <div className="c-s-student-details">
-                            <div className="roll-no">Roll no</div>
-                          </div>
-                          <div className="name-label">
-                            <div className="name">Name</div>
-                          </div>
-                          <div className="c-s-student-cell">
-                            <div className="levels">Levels</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <img
-                      className="e-c-department-row-child"
-                      loading="lazy"
-                      alt=""
-                      src="/line-2.svg"
-                    />
-                    <div className="a-g-student-row-wrapper">
-                      <div className="a-g-student-row">
-                        <div className="c-s-student-content">
-                          <div className="e-c-department-value">
-                            <div className="e-c-student-item">
-                              <div
-                                className="selection"
-                                onClick={onSelectionClick}
-                              />
-                            </div>
-                            <div
-                              className="naveen-kumar-p"
-                              onClick={onSelectionClick}
-                            >
-                              7376222IT210
-                            </div>
-                          </div>
-                          <div
-                            className="naveen-kumar-p"
-                            onClick={onSelectionClick}
-                          >
-                            Naveen Kumar P
-                          </div>
-                        </div>
-                        <div className="placeholder" onClick={onSelectionClick}>
-                          
-                          7
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="student-row">
-                    <img
-                      className="e-c-department-row-child"
-                      loading="lazy"
-                      alt=""
-                      src="/line-1.svg"
-                    />
-                    <div className="filter-item">
-                      <div className="e-c-department-cell-parent">
-                        <div className="e-c-department-cell">
-                          <div className="e-c-department-details">
-                            <div className="selection-icon" />
-                            <div className="aravind-chidambaram-r">
-                              7376221EC113
-                            </div>
-                          </div>
-                        </div>
-                        <div className="aravind-chidambaram-r-wrapper">
-                          <div className="aravind-chidambaram-r">
-                            Aravind Chidambaram R
-                          </div>
-                        </div>
-                        <div className="placeholder-name">7</div>
-                      </div>
-                    </div>
-                    <img
-                      className="e-c-department-row-child"
-                      loading="lazy"
-                      alt=""
-                      src="/line-2.svg"
-                    />
-                    <div className="filter-item">
-                      <div className="a-g-student-row">
-                        <div className="frame-parent">
-                          <div className="frame-wrapper">
-                            <div className="e-c-department-details">
-                              <div className="c-s-student-cell">
-                                <div className="select-all-toggle" />
-                              </div>
-                              <div className="aravind-chidambaram-r">
-                                7376221CS262
-                              </div>
-                            </div>
-                          </div>
-                          <div className="aravind-chidambaram-r">
-                            Prasanna Kumar M
-                          </div>
-                        </div>
-                        <div className="c-s-student-cell">
-                          <div className="c-s-department">6</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row-components">
-                      <img
-                        className="e-c-department-row-child"
-                        loading="lazy"
-                        alt=""
-                        src="/line-1.svg"
-                      />
-                      <div className="filter-item">
-                        <div className="a-g-student-row">
-                          <div className="a-g-student-item">
-                            <div className="c-s-student">
-                              <div className="e-c-department-details">
-                                <div className="selection-icon" />
-                                <div className="c-s-student-cell">
-                                  <div className="aravind-chidambaram-r">
-                                    7376221EC196
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="aravind-chidambaram-r">{`Kavibharathi M S `}</div>
-                          </div>
-                          <div className="a-g-student">
-                            <div className="placeholder-item">5</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <img
-                      className="e-c-department-row-child"
-                      loading="lazy"
-                      alt=""
-                      src="/line-2.svg"
-                    />
-                    <div className="row-components-inner">
-                      <div className="a-g-student-row">
-                        <div className="filter-row">
-                          <div className="table">
-                            <div className="filter-container">
-                              <div className="select-all-toggle" />
-                            </div>
-                            <div className="aravind-chidambaram-r">
-                              7376221AG106
-                            </div>
-                          </div>
-                          <div className="harish-r">Harish R</div>
-                        </div>
-                        <div className="placeholder-item">5</div>
-                      </div>
-                    </div>
-                    <div className="row-components1">
-                      <img
-                        className="e-c-department-row-child"
-                        loading="lazy"
-                        alt=""
-                        src="/line-1.svg"
-                      />
-                      <div className="row-components-inner">
-                        <div className="a-g-student-row">
-                          <div className="filter-content">
-                            <div className="student-details">
-                              <div className="e-c-department-details">
-                                <div className="selection-icon" />
-                                <div className="aravind-chidambaram-r">
-                                  7376221BT167
-                                </div>
-                              </div>
-                            </div>
-                            <div className="aravind-chidambaram-r">
-                              Selvahareesh K
-                            </div>
-                          </div>
-                          <div className="wrapper">
-                            <div className="placeholder-item">4</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          </div>
+          <div className="students-list">
+            <div className="student-records">
+              {/* Table Headings */}
+              <div className="student-header">
+                <span className="student-header-item">Roll No</span>
+                <span className="student-header-item">Name</span>
+                <span className="student-header-item">Level</span>
               </div>
+              {/* Student Records */}
+              {filteredStudents.map((student, index) => (
+                <div key={index} className="student-row" onClick={() => onSelectionClick(student.rollNo)}>
+                  <div className="student-details">
+                    <span className="student-roll">{student.rollNo}</span>
+                    <span className="student-name">{student.name}</span>
+                    <span className="student-level">{student.level}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
