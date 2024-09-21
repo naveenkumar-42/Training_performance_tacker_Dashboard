@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import SideBar from "../components/SideBar";
+import NavBar from "../components/NavBar";
 import LangChart from "../components/langChart";
 import { useNavigate } from "react-router-dom";
 import BarChart from "../components/barChart";
@@ -59,7 +59,7 @@ const StudentDashboard = () => {
 
   return (
     <section className="student-dashboard">
-        {/* <SideBar /> */}
+        <NavBar />
       {/* Top Section */}
       <section className="top">
         <div className="p_img_detail">
