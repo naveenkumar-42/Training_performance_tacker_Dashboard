@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Training_performance_tacker_Dashboard/static/css/main.1739d35c.css",
-    "main.js": "/Training_performance_tacker_Dashboard/static/js/main.ffefe65c.js",
-    "static/js/453.82192739.chunk.js": "/Training_performance_tacker_Dashboard/static/js/453.82192739.chunk.js",
-    "index.html": "/Training_performance_tacker_Dashboard/index.html",
-    "main.1739d35c.css.map": "/Training_performance_tacker_Dashboard/static/css/main.1739d35c.css.map",
-    "main.ffefe65c.js.map": "/Training_performance_tacker_Dashboard/static/js/main.ffefe65c.js.map",
-    "453.82192739.chunk.js.map": "/Training_performance_tacker_Dashboard/static/js/453.82192739.chunk.js.map"
+    "main.css": "/static/css/main.1739d35c.css",
+    "main.js": "/static/js/main.e563d390.js",
+    "static/js/453.82192739.chunk.js": "/static/js/453.82192739.chunk.js",
+    "index.html": "/index.html",
+    "main.1739d35c.css.map": "/static/css/main.1739d35c.css.map",
+    "main.e563d390.js.map": "/static/js/main.e563d390.js.map",
+    "453.82192739.chunk.js.map": "/static/js/453.82192739.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1739d35c.css",
-    "static/js/main.ffefe65c.js"
+    "static/js/main.e563d390.js"
   ]
 }
