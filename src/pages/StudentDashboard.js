@@ -29,6 +29,8 @@ const StudentDashboard = () => {
     Eligibility: ''
   });
 
+  const [skills, setSkills] = useState([]);
+
   const [p_attendance, setPAttendance] = useState({
     p_p_days: '',
     p_t_days: '',
@@ -93,6 +95,22 @@ const StudentDashboard = () => {
       })
       .catch(error => console.error('Error fetching p_profile:', error));
   }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/ps_status')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Fetched skills data:', data); // Debugging log
+        setSkills(data); // Update state with fetched data
+      })
+      .catch(error => console.error('Error fetching skills data:', error));
+  }, []);
+  
 
   useEffect(() => {
     fetch('http://localhost:3001/p_attendance')
@@ -235,32 +253,20 @@ const StudentDashboard = () => {
     </section>
       
       {/* Bottom Section */}
-      <section className="skills-section">
-  <div className="skills-wrapper">
-    <div className="skill-chart">
-      <div className="skill-graph">
-        <div className="chart-item">
-          <LangChart value={3} valueMax={6} title="C" />
+  <section className="skills-section">
+      <div className="skills-wrapper">
+        <div className="skill-chart">
+          {skills.map((skill, index) => (
+            <div className="skill-graph" key={index}>
+              <div className="chart-item">
+                {/* Dynamically render LangChart with API data */}
+                <LangChart value={skill.s_level} valueMax={skill.s_max} title={skill.s_name} />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="skill-graph">
-        <div className="chart-item">
-          <LangChart value={2} valueMax={4} title="JAVA" />
-        </div>
-      </div>
-      <div className="skill-graph">
-        <div className="chart-item">
-          <LangChart value={1} valueMax={10} title="DSA" />
-        </div>
-      </div>
-      <div className="skill-graph">
-        <div className="chart-item">
-          <LangChart value={4} valueMax={10} title="SQL" />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
     </section>
   );
 };

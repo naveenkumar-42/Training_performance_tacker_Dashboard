@@ -77,6 +77,7 @@
   margin-right: 30px; /* Ensures the last item is pushed to the end */
   background-color: #ff4d4d; /* Optional: highlight logout */
   color: white; /* Optional: text color */
+  border-radius:5px ;
 }
 
 .nav-item:last-child:hover {
@@ -84,7 +85,7 @@
 }
 
 .active {
-  color: #f39c12; /* Active item color */
+  color: #8dc5eb; /* Active item color */
   background-color: #2c3e50; 
   padding: 5px; /* Active item background */
   border-radius: 5px;

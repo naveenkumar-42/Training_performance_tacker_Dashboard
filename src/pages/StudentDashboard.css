@@ -46,17 +46,37 @@
   margin-bottom: 10px;
 }
 .status {
-  border: none;
+  border: 4px solid #7ade59; /* Initial border color */
   padding: var(--padding-lg) var(--padding-xl);
   background-color: #7ade59;
   width: 297px;
-  text-align: center ;
+  text-align: center;
   justify-content: center;
   box-sizing: border-box;
+  animation:border-rotate 3s infinite linear; /* Add border rotation animation */
 }
 
 .status:hover {
   background-color: #84c56e;
+}
+
+/* Define keyframes for the border color rotation animation */
+@keyframes border-rotate {
+  0% {
+    border-color: #7ade59;
+  }
+  25% {
+    border-color: #84c56e;
+  }
+  50% {
+    border-color: #59c7de;
+  }
+  75% {
+    border-color: #de597a;
+  }
+  100% {
+    border-color: #7ade59;
+  }
 }
 
 /* profile details */
@@ -144,7 +164,6 @@
   padding: 10px 15px;
   border-radius: 8px;
   font-size: 16px;
-  color: var(--color-gray-300);
 }
 
 .separator1 {
@@ -221,6 +240,7 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 10px;
+  margin: 10px 0px 0px 30px;
 }
 
 .attendance-heading {
@@ -235,6 +255,7 @@
 .attendance-value {
   font-size: var(--font-size-xl);
   color: var(--color-whitesmoke);
+  margin-left: 15px;
 }
 
 .attendance-remarks {
@@ -244,8 +265,9 @@
 }
 
 .attendance-chart {
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
+  margin-right: 10%;
 }
 
 @media (max-width: 768px) {

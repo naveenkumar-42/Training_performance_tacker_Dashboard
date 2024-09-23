@@ -106,6 +106,18 @@ app.get('/s_traning', (req, res) => {
         });
 });
 
+app.get('/ps_status', (req, res) => {
+    const sql = 'SELECT * FROM ps_status';
+    promisePool.query(sql)
+        .then(([rows, fields]) => {
+            return res.json(rows);
+        })
+        .catch((err) => {
+            console.error('Error executing query:', err);
+            return res.json(err);
+        });
+});
+
 app.get('/profile', (req, res) => {
     const sql = 'SELECT * FROM profile';
     promisePool.query(sql)
@@ -120,6 +132,8 @@ app.get('/profile', (req, res) => {
             return res.status(500).json({ error: 'Internal Server Error' });
         });
 });
+
+
 
 const PORT = 3001;
 app.listen(PORT, () => {

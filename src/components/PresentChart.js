@@ -11,8 +11,8 @@ const PresentChart = ({ pd, td }) => {
     datasets: [
       {
         data: [pd, td - pd],
-        backgroundColor: ["#4caf50", "#f44336"],
-        hoverBackgroundColor: ["#66bb6a", "#ef5350"]
+        backgroundColor: ["#4caf50", "#36a3eb"],
+        hoverBackgroundColor: ["#66bb6a", "#8dc5eb"]
       }
     ]
   };

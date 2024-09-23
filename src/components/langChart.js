@@ -1,5 +1,6 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './langChart.css';
 
 const LangChart = ({ value, valueMax, title }) => {
@@ -9,7 +10,7 @@ const LangChart = ({ value, valueMax, title }) => {
       height: 350,
       type: 'radialBar',
       toolbar: {
-        show: false, // Hide toolbar for a cleaner look
+        show: false,
       },
     },
     plotOptions: {
@@ -19,7 +20,6 @@ const LangChart = ({ value, valueMax, title }) => {
         hollow: {
           margin: 0,
           size: '70%',
-          background: '#fff',
           dropShadow: {
             enabled: true,
             top: 3,
@@ -44,14 +44,14 @@ const LangChart = ({ value, valueMax, title }) => {
           name: {
             offsetY: -10,
             show: true,
-            color: '#888',
+            color: '#ffffff',
             fontSize: '17px',
           },
           value: {
             formatter: function (val) {
               return parseInt(val);
             },
-            color: '#111',
+            color: '#ffffff',
             fontSize: '36px',
             show: true,
           },
@@ -74,14 +74,31 @@ const LangChart = ({ value, valueMax, title }) => {
     stroke: {
       lineCap: 'round',
     },
-    labels: [`${value} / ${valueMax}`], // Show value/total
+    labels: [`${value} / ${valueMax}`],
+    tooltip: {
+      enabled: true, 
+      x: {
+        show: false,
+      },
+      y: {
+        formatter: function (val) {
+          return `${val.toFixed(2)}%`; 
+        },
+      },
+    },
+  };
+
+  const navigate = useNavigate();
+
+  const handleDetailsClick = () => {
+    navigate('/details');
   };
 
   return (
     <div className="speedometer-container">
       <Chart options={options} series={options.series} type="radialBar" height={350} />
-      <h1>{title}</h1>
-      <button className="openapi">
+      <h1 className='h-title'>{title}</h1>
+      <button className="openapi" onClick={handleDetailsClick}>
         <b className="details2">Details</b>
       </button>
     </div>
