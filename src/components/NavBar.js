@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaHome, FaUser, FaChartBar, FaCog } from "react-icons/fa";
-import { FiLogOut } from "react-icons/fi";
+import { FiLogOut } from 'react-icons/fi';
+import { FaHome, FaUser, FaChartBar } from "react-icons/fa";
 import { Client, Account } from 'appwrite'; // Appwrite SDK for authentication
 import "./NavBar.css";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // State to control menu visibility
 
   const client = new Client();
   client
@@ -59,12 +60,20 @@ const NavBar = () => {
     { icon: <FiLogOut />, label: "Logout", path: "/", action: handleLogout },
   ];
 
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev); // Toggle menu open state
+  };
+
   return (
     <div className="horizontal-navbar">
       <div className="nav-title">
         <h1 className="title-text">STUDENT DASHBOARD</h1>
       </div>
-      <div className="nav-items-container">
+      <div className="menu-toggle" onClick={toggleMenu}>
+        {/* Hamburger Icon */}
+        {menuOpen ? "✖" : "☰"}
+      </div>
+      <div className={`nav-items-container ${menuOpen ? 'open' : ''}`}>
         <div className="nav-items">
           {navItems.map((item, index) => (
             <NavLink

@@ -13,6 +13,7 @@ body {
   padding: 20px;
 }
 
+/* Section styles */
 .section {
   background-color: #2a2a3d;
   padding: 20px;
@@ -27,6 +28,7 @@ h3 {
   color: var(--color-whitesmoke);
 }
 
+/* Table styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -48,6 +50,7 @@ tbody tr {
   border-bottom: 1px solid #444466;
 }
 
+/* Status styles */
 .completed {
   color: #32cd32;
   font-weight: bold;
@@ -56,14 +59,6 @@ tbody tr {
 .ongoing {
   color: #ff6347;
   font-weight: bold;
-}
-
-.approved {
-  color: #32cd32;
-}
-
-.rejected {
-  color: #ff6347;
 }
 
 .more-details {
@@ -87,15 +82,21 @@ tbody tr {
   grid-column: span 2;
 }
 
-/* Responsive design for smaller screens (two columns to one column) */
+/* Responsive design */
 @media (max-width: 768px) {
   .dashboard-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Switch to one column layout */
   }
 
-  /* Ensure all sections take full width on mobile */
   .section.full-width {
-    grid-column: span 1;
+    grid-column: span 1; /* Ensure full-width sections span one column */
+  }
+
+  h3 {
+    font-size: 1.2rem; /* Adjust heading size for smaller screens */
+  }
+
+  .more-details {
+    width: 100%; /* Make buttons full width on mobile */
   }
 }
-

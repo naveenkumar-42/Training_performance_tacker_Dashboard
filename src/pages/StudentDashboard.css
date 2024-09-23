@@ -43,6 +43,7 @@
   max-width: 100%;
   overflow: hidden;
   object-fit: cover;
+  margin-bottom: 10px;
 }
 .status {
   border: none;
@@ -62,9 +63,10 @@
 .p_details{
   display: flex;
   color:var(--color-whitesmoke);
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   position: relative;
   display: inline-block;
-  min-height: 400px;
 }
 
 .heading{
@@ -174,6 +176,7 @@
   color: inherit;
 }
 
+
 @media (max-width: 768px) {
   .top {
     flex-direction: column; 
@@ -184,10 +187,11 @@
     width: 300px; 
     margin: 10px auto; 
   }
-  
+  .rank-points{
+    margin-right: 30px;
+  }
   .status, .score {
     text-align: center;
-    width: 100%;
   }
 }
 
@@ -251,7 +255,7 @@
   }
 
   .attendance-card {
-    width: auto;
+
     margin-bottom: 10px;
   }
 }
@@ -375,3 +379,21 @@ canvas {
   font-size: 20px;  
 }
 
+@media (max-width: 768px) {
+  .top, .attendance-container, .middle, .skills-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .attendance-card {
+    flex: 1 1 80%; 
+  }
+
+  .bar-chart-container, .hbar-chart-container {
+    flex: 1 1 100%; 
+  }
+
+  .skill-graph {
+    flex: 1 1 45%;
+  }
+}

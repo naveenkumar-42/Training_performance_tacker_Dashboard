@@ -11,11 +11,12 @@
   border: 1px solid var(--color-white);
 }
 
-.nav-items-container{
+.nav-items-container {
   margin-left: 60px;
   flex-grow: 1;
-
+  display: flex; /* Enable flex for items */
 }
+
 .logo {
   height: 50px;
   width: 50px;
@@ -27,6 +28,9 @@
   font-weight: bold;
 }
 
+.menu-toggle {
+  display: none;
+}
 .nav-items {
   display: flex;
   gap: 50px;
@@ -45,7 +49,7 @@
   text-decoration: none;
 }
 
-.nav-title{
+.nav-title {
   display: flex;
   gap: 10px;
   margin-left: 40px;
@@ -53,9 +57,10 @@
   justify-content: center;
   align-items: center;
 }
+
 .nav-item:hover {
   background-color: #2c3e50; 
-  border-radius: 5px ;
+  border-radius: 5px;
 }
 
 .icon {
@@ -64,7 +69,7 @@
 }
 
 .label {
-  display: none; /* Hidden by default on smaller screens */
+  display: inline; /* Show label by default */
 }
 
 .nav-item:last-child {
@@ -78,18 +83,50 @@
   background-color: #ff1a1a; /* Optional: hover effect */
 }
 
-
-
 .active {
   color: #f39c12; /* Active item color */
   background-color: #2c3e50; 
-  padding: 5px;/* Active item background */
-  border-radius: 5px ;
-  border:1px solid #34495e;
+  padding: 5px; /* Active item background */
+  border-radius: 5px;
+  border: 1px solid #34495e;
 }
-@media (min-width: 768px) {
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .nav-items-container {
+    display: none; /* Hide nav items by default on small screens */
+    flex-direction: column; /* Stack items vertically */
+    position: absolute;
+    top: 60px; /* Position below navbar */
+    right: 0;
+    width: 100%; /* Full width for mobile items */
+    background-color: var(--color-darkslategray-300); /* Match navbar color */
+  }
+
+  .nav-items-container.open {
+    display: flex; /* Show items when menu is open */
+  }
+
+  .menu-toggle {
+    display: block; /* Show hamburger menu */
+    cursor: pointer;
+    margin-right:10px;
+    margin-bottom: 2px;
+    margin-left: auto; /* Align to the right */
+  }
+
+  .nav-item {
+    justify-content: center; /* Center items in mobile view */
+    padding: 15px; /* Increase padding for touch targets */
+    width: 100%; /* Full width for mobile items */
+  }
+
   .label {
-    display: inline;
+    display: none; /* Hide labels in mobile view */
+  }
+
+  .icon {
+    margin-right: 0; /* No margin for icons */
   }
 }
 
