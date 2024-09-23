@@ -1,222 +1,159 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'; // Import useState and useEffect
 import './Details.css';
 import NavBar from '../components/NavBar';
+import Table from '../components/table'; // Import the Table component
 
 const Dashboard = () => {
+  const [skills, setSkills] = useState([]);
+  const [fullStackRankData, setFullStackRankData] = useState([]);
+  const [personalizedSkillData, setPersonalizedSkillData] = useState([]);
+  const [placementAssessmentData, setPlacementAssessmentData] = useState([]);
+  const [githubProjectsData, setGithubProjectsData] = useState([]);
+  const [achievementsData, setAchievementsData] = useState([]);
+
+  // Fetch data from APIs
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const skillsResponse = await fetch('http://localhost:3001/s_skill');
+        const skillsData = await skillsResponse.json();
+        setSkills(skillsData);
+
+        const fullStackRankResponse = await fetch('http://localhost:3001/full_stack_rank');
+        const fullStackRankData = await fullStackRankResponse.json();
+        setFullStackRankData(fullStackRankData);
+
+        const personalizedSkillResponse = await fetch('http://localhost:3001/personalized_skills');
+        const personalizedSkillData = await personalizedSkillResponse.json();
+        setPersonalizedSkillData(personalizedSkillData);
+
+        const placementAssessmentResponse = await fetch('http://localhost:3001/placement_assessments');
+        const placementAssessmentData = await placementAssessmentResponse.json();
+        setPlacementAssessmentData(placementAssessmentData);
+
+        const githubProjectsResponse = await fetch('http://localhost:3001/github_projects');
+        const githubProjectsData = await githubProjectsResponse.json();
+        setGithubProjectsData(githubProjectsData);
+
+        const achievementsResponse = await fetch('http://localhost:3001/achievements');
+        const achievementsData = await achievementsResponse.json();
+        setAchievementsData(achievementsData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Define the table headers
+  const headers = ['Semester', 'Skill Code', 'Skill Name', 'Skill Type', 'Skill Mark', 'Total Mark'];
+
+  // Map the skills data into an array of arrays (for each row)
+  const tableData = skills.map(skill => [
+    skill.c_sem,
+    skill.s_code,
+    skill.s_name,
+    skill.s_type,
+    skill.s_mark,
+    skill.t_mark
+  ]);
+
+  // Map data for each section
+  const fullStackRankHeaders = ['Progression Point', 'Stage Point', 'Level Completion Point', 'Overall Point'];
+  const fullStackRankMapped = fullStackRankData.map(data => [
+    data.progression_point,
+    data.stage_point,
+    data.level_completion_point,
+    data.overall_point
+  ]);
+
+  const personalizedSkillHeaders = ['Name', 'Level', 'Status', 'Points'];
+  const personalizedSkillMapped = personalizedSkillData.map(data => [
+    data.name,
+    data.level,
+    data.status,
+    data.points
+  ]);
+
+  const placementAssessmentHeaders = ['Test Name', 'Training Name', 'Mark'];
+  const placementAssessmentMapped = placementAssessmentData.map(data => [
+    data.test_name,
+    data.training_name,
+    data.mark
+  ]);
+
+  const githubProjectsHeaders = ['Project', 'Stars', 'Stack', 'Overall Point'];
+  const githubProjectsMapped = githubProjectsData.map(data => [
+    data.project,
+    data.stars,
+    data.stack,
+    data.overall_point
+  ]);
+
+  const achievementsHeaders = ['Event Name', 'Position', 'Date','Status'];
+  const achievementsMapped = achievementsData.map(data => [
+    data.event_name,
+    data.position,
+    data.date,
+    data.status
+  ]);
+
   return (
     <div className="details">
-    <NavBar />
-    <div className="dashboard-container">
-      
-      <div className="section full-stack-rank">
-        <h3>Full-Stack Rank</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Progression Point</th>
-              <th>Stage Point</th>
-              <th>Level Completion Point</th>
-              <th>Overall Point</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>50</td>
-              <td>100</td>
-              <td>120</td>
-              <td>270</td>
-            </tr>
-            <tr>
-              <td>50</td>
-              <td>120</td>
-              <td>220</td>
-              <td>270</td>
-            </tr>
-            <tr>
-              <td>30</td>
-              <td>50</td>
-              <td>120</td>
-              <td>200</td>
-            </tr>
-            <tr>
-              <td>20</td>
-              <td>100</td>
-              <td>120</td>
-              <td>240</td>
-            </tr>
-          </tbody>
-        </table>
-        <button className="more-details">More Details</button>
-      </div>
+      <NavBar />
+      <div className="dashboard-container">
+        <div className="section">
+          <h3>Full-Stack Rank</h3>
+          <Table headers={fullStackRankHeaders} data={fullStackRankMapped} />
+          {/* Provide a link for the "More Details" button */}
+          <a href="https://bip.bitsathy.ac.in/dashboard/placements" target="_blank" rel="noopener noreferrer">
+            <button className="more-details">More Details</button>
+          </a>
+        </div>
 
-      <div className="section personalized-skill">
-        <h3>Personalized Skill</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Level</th>
-              <th>Status</th>
-              <th>Points</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>C</td>
-              <td>5</td>
-              <td className="completed">Completed</td>
-              <td>270</td>
-            </tr>
-            <tr>
-              <td>C</td>
-              <td>4</td>
-              <td className="completed">Completed</td>
-              <td>220</td>
-            </tr>
-            <tr>
-              <td>JAVA</td>
-              <td>3</td>
-              <td className="ongoing">On Going</td>
-              <td>200</td>
-            </tr>
-            <tr>
-              <td>DSA</td>
-              <td>3</td>
-              <td className="ongoing">On Going</td>
-              <td>240</td>
-            </tr>
-            <tr>
-              <td>SQL</td>
-              <td>2</td>
-              <td className="completed">Completed</td>
-              <td>240</td>
-            </tr>
-          </tbody>
-        </table>
-        <button className="more-details">More Details</button>
-      </div>
+        <div className="section">
+          <h3>Personalized Skill</h3>
+          <Table headers={personalizedSkillHeaders} data={personalizedSkillMapped} />
+          <a href="https://ps.bitsathy.ac.in/dashboard" target="_blank" rel="noopener noreferrer">
+            <button className="more-details">More Details</button>
+          </a>
+        </div>
 
-      <div className="section placement-assessment">
-        <h3>Placement Training Assessment</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Test Name</th>
-              <th>Training Name</th>
-              <th>Mark</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>CAREER GROWTH</td>
-              <td>GROWTH TRAINING</td>
-              <td>83</td>
-            </tr>
-            <tr>
-              <td>2026_S2_MID TERM ASSESSMENT 1</td>
-              <td>MID TERM TEST</td>
-              <td>75</td>
-            </tr>
-            <tr>
-              <td>2026_S2_MOCK INTERVIEW 1</td>
-              <td>MOCK INTERVIEW</td>
-              <td>84</td>
-            </tr>
-            <tr>
-              <td>2026_S2_MOCK INTERVIEW 2</td>
-              <td>MOCK INTERVIEW</td>
-              <td>95</td>
-            </tr>
-            <tr>
-              <td>2026_S3_MOCK INTERVIEW 3</td>
-              <td>MOCK INTERVIEW</td>
-              <td>86</td>
-            </tr>
-          </tbody>
-        </table>
-        <button className="more-details">More Details</button>
-      </div>
+        <div className="section">
+          <h3>Placement Training Assessment</h3>
+          <Table headers={placementAssessmentHeaders} data={placementAssessmentMapped} />
+          <a href="https://bip.bitsathy.ac.in/dashboard/placements" target="_blank" rel="noopener noreferrer">
+            <button className="more-details">More Details</button>
+          </a>
+        </div>
 
-      <div className="section github-projects">
-        <h3>Git Hub</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Stars</th>
-              <th>Stack</th>
-              <th>Overall Point</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>dashboard_frontend</td>
-              <td>5</td>
-              <td>MERN</td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>Contextual_Chatbot</td>
-              <td>9</td>
-              <td>DJANGO</td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>bit_frontend</td>
-              <td>10</td>
-              <td>HTML,CSS,JS</td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>Training Tracker</td>
-              <td>6</td>
-              <td>Spring Boot</td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>iT_web</td>
-              <td>12</td>
-              <td>REACT</td>
-              <td>100</td>
-            </tr>
-          </tbody>
-        </table>
-        <button className="more-details">More Details</button>
-      </div>
+        <div className="section">
+          <h3>Git Hub</h3>
+          <Table headers={githubProjectsHeaders} data={githubProjectsMapped} />
+          <a href="https://github.com/naveenkumar-42" target="_blank" rel="noopener noreferrer">
+            <button className="more-details">More Details</button>
+          </a>
+        </div>
 
-      <div className="section achievements full-width"> {/* Add full-width class here */}
-        <h3>Achievements</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Event Name</th>
-              <th>Position</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Hackathon</td>
-              <td>1st Place</td>
-              <td>July 2023</td>
-            </tr>
-            <tr>
-              <td>Codefest</td>
-              <td>2nd Place</td>
-              <td>August 2023</td>
-            </tr>
-            <tr>
-              <td>Tech Challenge</td>
-              <td>Finalist</td>
-              <td>June 2023</td>
-            </tr>
-          </tbody>
-        </table>
-        <button className="more-details">More Details</button>
+        <div className="section full-width">
+          <h3>Achievements</h3>
+          <Table headers={achievementsHeaders} data={achievementsMapped} />
+          <a href="https://bip.bitsathy.ac.in/dashboard/achievements" target="_blank" rel="noopener noreferrer">
+            <button className="more-details">More Details</button>
+          </a>
+        </div>
+
+        <div className="section">
+          <h3>Overall Skills Acquired</h3>
+            <Table headers={headers} data={tableData} customClasses="overall-skills-table"  />
+          <a href="https://bip.bitsathy.ac.in/dashboard/achievements" target="_blank" rel="noopener noreferrer">
+            <button className="more-details">More Details</button>
+          </a>
+        </div>
       </div>
-    </div>
     </div>
   );
-}
+};
 
 export default Dashboard;

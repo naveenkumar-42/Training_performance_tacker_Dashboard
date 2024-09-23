@@ -133,7 +133,90 @@ app.get('/profile', (req, res) => {
         });
 });
 
+// admin_server
+app.get('/admin_page', (req, res) => {
+    const sql = 'SELECT * FROM admin_page';
+    promisePool.query(sql)
+        .then(([rows, fields]) => {
+            return res.json(rows);
+        })
+        .catch((err) => {
+            console.error('Error executing query:', err);
+            return res.json(err);
+        });
+});
 
+app.get('/full_stack_rank', (req, res) => {
+    const sql = 'SELECT * FROM full_stack_rank';
+    promisePool.query(sql)
+        .then(([rows, fields]) => {
+            return res.json(rows);
+        })
+        .catch((err) => {
+            console.error('Error executing query:', err);
+            return res.json(err);
+        });
+});
+
+app.get('/personalized_skills', (req, res) => {
+    const sql = 'SELECT * FROM personalized_skills';
+    promisePool.query(sql)
+        .then(([rows, fields]) => {
+            return res.json(rows);
+        })
+        .catch((err) => {
+            console.error('Error executing query:', err);
+            return res.json(err);
+        });
+
+        app.get('/admin_page', (req, res) => {
+    const sql = 'SELECT * FROM admin_page';
+    promisePool.query(sql)
+        .then(([rows, fields]) => {
+            return res.json(rows);
+        })
+        .catch((err) => {
+            console.error('Error executing query:', err);
+            return res.json(err);
+        });
+});
+});
+
+app.get('/placement_assessments', (req, res) => {
+    const sql = 'SELECT * FROM placement_assessments';
+    promisePool.query(sql)
+        .then(([rows, fields]) => {
+            return res.json(rows);
+        })
+        .catch((err) => {
+            console.error('Error executing query:', err);
+            return res.json(err);
+        });
+});
+
+app.get('/github_projects', (req, res) => {
+    const sql = 'SELECT * FROM github_projects';
+    promisePool.query(sql)
+        .then(([rows, fields]) => {
+            return res.json(rows);
+        })
+        .catch((err) => {
+            console.error('Error executing query:', err);
+            return res.json(err);
+        });
+});
+
+app.get('/achievements', (req, res) => {
+    const sql = 'SELECT * FROM achievements';
+    promisePool.query(sql)
+        .then(([rows, fields]) => {
+            return res.json(rows);
+        })
+        .catch((err) => {
+            console.error('Error executing query:', err);
+            return res.json(err);
+        });
+});
 
 const PORT = 3001;
 app.listen(PORT, () => {

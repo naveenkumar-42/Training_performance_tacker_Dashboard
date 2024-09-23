@@ -12,7 +12,7 @@
 }
 
 .students-header-wrapper {
-  width: 100vw;
+  width: 98%;
   padding: var(--padding-mid); /* Use variable for padding */
   background-color: var(--color-darkslategray-100); 
   text-align: center;
