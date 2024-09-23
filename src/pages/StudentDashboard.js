@@ -6,7 +6,6 @@ import BarChart from "../components/barChart";
 import "./StudentDashboard.css";
 import PresentChart from "../components/PresentChart";
 import HbarChart from "../components/hbarChart";
-
 const StudentDashboard = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
@@ -23,6 +22,26 @@ const StudentDashboard = () => {
     warden: ''
   });
 
+  // Add state for p_profile
+  const [p_profile, setPProfile] = useState({
+    FsRank: '',
+    PCumulative: '',
+    Eligibility: ''
+  });
+
+  const [p_attendance, setPAttendance] = useState({
+    p_p_days: '',
+    p_t_days: '',
+    p_remarks: '',
+    fa_p_days: '',
+    fa_t_days: '',
+    fa_remarks: '',
+    t_p_days: '',
+    t_t_days: '',
+    t_remarks: ''   
+  });
+
+  // Fetch profile data
   useEffect(() => {
     fetch('http://localhost:3001/profile')
       .then(response => {
@@ -53,9 +72,53 @@ const StudentDashboard = () => {
       .catch(error => console.error('Error fetching profile:', error));
   }, []);
 
-  const onBackgroundClick = useCallback(() => {
-    navigate("/details");
-  }, [navigate]);
+  // Fetch p_profile data
+  useEffect(() => {
+    fetch('http://localhost:3001/p_profile')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Fetched p_profile data:', data); // Debugging log
+        if (data.length > 0) {
+          setPProfile({
+            FsRank: data[0].FsRank,
+            PCumulative: data[0].PCumulative,
+            Eligibility: data[0].Eligibility
+          });
+        }
+      })
+      .catch(error => console.error('Error fetching p_profile:', error));
+  }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/p_attendance')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.length > 0) {
+          setPAttendance({
+            p_p_days: data[0].p_p_days,
+            p_t_days: data[0].p_t_days,
+            p_remarks: data[0].p_remarks,
+            fa_p_days: data[0].fa_p_days,
+            fa_t_days: data[0].fa_t_days,
+            fa_remarks: data[0].fa_remarks,
+            t_p_days: data[0].t_p_days,
+            t_t_days: data[0].t_t_days,
+            t_remarks: data[0].t_remarks
+          });
+        }
+      })
+      .catch(error => console.error('Error fetching p_attendance:', error));
+  }, []);
 
   return (
     <section className="student-dashboard">
@@ -73,8 +136,10 @@ const StudentDashboard = () => {
         </div>
         <div className="p_img_detail">
           <div className="p_details">
+            <div className="p_head">
             <h3>{profile.name}</h3>
             <p>{profile.id}</p>
+            </div>
             <p>{profile.semester}</p>
             <p>{profile.department}</p>
             <p>{profile.mentor}</p>
@@ -105,16 +170,16 @@ const StudentDashboard = () => {
                     </div>
                   </div>
                   <div className="improvement-note">
-                    <div className="note">Need Improvement</div>
+                    <div className="note">{p_profile.Eligibility}</div>
                   </div>
                 </div>
               </div>
-              <div className="separator">
+              <div className="separator1">
                 <div className="score">
-                  <a className="score-value">66</a>
+                  <a className="score-value">{p_profile.FsRank}</a>
                 </div>
                 <div className="score">
-                  <a className="score-value">64.2</a>
+                  <a className="score-value">{p_profile.PCumulative}</a>
                 </div>
               </div>
             </div>
@@ -124,39 +189,39 @@ const StudentDashboard = () => {
       
       {/* Top-Mid Section */}
       <section className="attendance-container">
-  <div className="attendance-card">
-    <div className="attendance-info">
-      <div className="attendance-heading">Present Days</div>
-      <div className="attendance-value">58</div>
-      <div className="attendance-remarks">Good</div>
-    </div>
-    <div className="attendance-chart">
-      <PresentChart pd={58} td={100} />
-    </div>
-  </div>
+        <div className="attendance-card">
+          <div className="attendance-info">
+            <div className="attendance-heading">Present Days</div>
+            <div className="attendance-value">{p_attendance.p_p_days}</div>
+            <div className="attendance-remarks">{p_attendance.p_remarks}</div>
+          </div>
+          <div className="attendance-chart">
+            <PresentChart pd={p_attendance.p_p_days} td={p_attendance.p_t_days} />
+          </div>
+        </div>
 
-  <div className="attendance-card">
-    <div className="attendance-info">
-      <div className="attendance-heading">T&P - FA</div>
-      <div className="attendance-value">80</div>
-      <div className="attendance-remarks">Need Improvement</div>
-    </div>
-    <div className="attendance-chart">
-      <PresentChart pd={80} td={100} />
-    </div>
-  </div>
+        <div className="attendance-card">
+          <div className="attendance-info">
+            <div className="attendance-heading">T&P - FA</div>
+            <div className="attendance-value">{p_attendance.fa_p_days}</div>
+            <div className="attendance-remarks">{p_attendance.fa_remarks}</div>
+          </div>
+          <div className="attendance-chart">
+            <PresentChart pd={p_attendance.fa_p_days} td={p_attendance.fa_t_days} />
+          </div>
+        </div>
 
-  <div className="attendance-card">
-    <div className="attendance-info">
-      <div className="attendance-heading">Training Assessment</div>
-      <div className="attendance-value">99</div>
-      <div className="attendance-remarks">Attended: 99</div>
-    </div>
-    <div className="attendance-chart">
-      <PresentChart pd={99} td={100} />
-    </div>
-  </div>
-</section>
+        <div className="attendance-card">
+          <div className="attendance-info">
+            <div className="attendance-heading">Training Assessment</div>
+            <div className="attendance-value">{p_attendance.t_p_days}</div>
+            <div className="attendance-remarks">{p_attendance.t_remarks}</div>
+          </div>
+          <div className="attendance-chart">
+            <PresentChart pd={p_attendance.t_p_days} td={p_attendance.t_t_days} />
+          </div>
+        </div>
+      </section>
 
       
       {/* Middle Section */}

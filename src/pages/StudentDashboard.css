@@ -64,7 +64,6 @@
   color:var(--color-whitesmoke);
   position: relative;
   display: inline-block;
-  text-align: center;
   min-height: 400px;
 }
 
@@ -78,6 +77,9 @@
   font-size:20px ;
   color: var(--color-whitesmoke);
   white-space: nowrap;
+}
+.p_head{
+  text-align: center
 }
 
 .placement-details {
@@ -143,8 +145,9 @@
   color: var(--color-gray-300);
 }
 
-.separator {
+.separator1 {
   display: flex;
+  margin: 0px 0px 0px 20px;
   flex-direction: column;
   gap: 10px;
 }

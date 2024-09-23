@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -21,19 +21,38 @@ ChartJS.register(
 );
 
 const BarChart = () => {
-  // Data for the bar chart
-  const data = {
-    labels: ['C-1', 'Java-1', 'C-2', 'Python-1', 'UI/UX-1', 'Java-2', 'C-3'],
-    datasets: [
-      {
-        label: 'Fullstack Rank Points',
-        data: [80, 100, 70, 100, 80, 100, 100],
-        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1,
-      },
-    ],
-  };
+  const [chartData, setChartData] = useState({ labels: [], datasets: [] });
+
+  // Fetch data from API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/ps_skill');
+        const data = await response.json();
+
+        // Prepare data for the chart
+        const labels = data.map(item => item.l_name);
+        const points = data.map(item => item.points);
+
+        setChartData({
+          labels: labels,
+          datasets: [
+            {
+              label: 'Fullstack Rank Points',
+              data: points,
+              backgroundColor: 'rgba(54, 162, 235, 0.5)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1,
+            },
+          ],
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array to run once on mount
 
   // Chart options with custom font styles
   const options = {
@@ -81,7 +100,7 @@ const BarChart = () => {
 
   return (
     <div className="chart-container">
-      <Bar data={data} options={options} />
+      <Bar data={chartData} options={options} />
     </div>
   );
 };
