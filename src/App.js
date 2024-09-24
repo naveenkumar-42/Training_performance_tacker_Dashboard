@@ -9,6 +9,7 @@ import StudentDashboard from "./pages/StudentDashboard";
 import Admin from "./pages/Admin";
 import Details from "./pages/Details";
 import TypeofLogin from "./pages/TypeofLogin";
+import Settings from "./pages/settings";
 import Login from "./pages/Login";
 
 function App() {
@@ -43,6 +44,10 @@ function App() {
         title = "Login Page";
         metaDescription = "";
         break;
+        case "/settings":
+        title = "Settings Page";
+        metaDescription = "";
+        break;
       case "/profile":
         title = "Student Dashboard";
         metaDescription = "";
@@ -69,6 +74,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/details" element={<Details />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="/profile" element={<StudentDashboard />} />
       </Routes>
   );

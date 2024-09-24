@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FiLogOut } from 'react-icons/fi';
 import { FaHome, FaUser, FaChartBar } from "react-icons/fa";
+import { IoSettingsSharp } from "react-icons/io5";
 import { Client, Account } from 'appwrite'; // Appwrite SDK for authentication
 import "./NavBar.css";
 
@@ -57,6 +58,7 @@ const NavBar = () => {
     { icon: <FaHome />, label: "Profile", path: "/profile" },
     { icon: <FaUser />, label: "Admin", path: "/Admin" },
     { icon: <FaChartBar />, label: "Resource", path: "/details" },
+    { icon: <IoSettingsSharp />, label: "Settings", path: "/settings" },
     { icon: <FiLogOut />, label: "Logout", path: "/", action: handleLogout },
   ];
 
