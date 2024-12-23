@@ -69,4 +69,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+Running the Backend Server
+In the project directory, you can run:
+
+node server.js
+Starts the backend server.
+Ensure that the server.js file exists in the project directory and is properly configured.
+
+The backend server listens for API requests. By default, it may run on http://localhost:5000 or another port you specify in the server.js file.
+
+Note: Make sure you have installed all required dependencies for the backend by running npm install in the project directory.
 
