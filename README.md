@@ -73,7 +73,7 @@ The Student Training Data Management System is designed to centralize all studen
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/your-username/student-training-system.git](https://github.com/your-username/student-training-system.git)
+git clone https://github.com/your-username/student-training-system.git
 cd student-training-system
 ```
 
