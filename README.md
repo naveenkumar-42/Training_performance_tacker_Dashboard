@@ -1,82 +1,111 @@
-# Getting Started with Create React App
+Student Training Data Management System
+Overview
+The Student Training Data Management System is designed to centralize all student training data, including attendance, assessments, and achievements, into a unified platform. The system provides a personalized student dashboard that reflects a student's talent scenario, offering skill-based analysis for educators to assess student proficiency levels in various technologies. This enables tailored learning experiences and data-driven educational interventions.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+Login and Registration System: Secure user authentication for Admin/Management, Students, Parents.
+Centralized Data Management: Store student data (attendance, assessments, achievements) in a centralized MySQL database.
+Student Dashboard: Allows students to view their details, achievements, and progress in training and placement programs.
+Skill-Based Analysis Tools: Educators can assess student proficiency in various skills (e.g., web development, mobile app development, blockchain).
+Report Generation and Analytics: Generate detailed reports and analytics on student progress for administrators and parents.
+Data Privacy and Security: Ensure data security through secure authentication, encryption, and compliance with data protection regulations.
+Tech Stack
+Backend: Spring Boot (Java)
+Frontend: React (JSX, SCSS)
+Database: MySQL
+API: RESTful services
+Authentication: Spring Security (JWT, OAuth2)
+Data Encryption: SSL, AES encryption
+Deployment: Docker, Kubernetes (Optional)
+Project Flow
+Purpose: Centralize student training data and provide a user-friendly interface for students, admins, and parents to track and analyze student progress.
+Scope: The project includes data management, student dashboard development, skill-based analysis, and reporting for personalized learning experiences.
+User Personas:
+Students: Can view personal training data and achievements.
+Admin/Management: Full access to all student data and the ability to generate reports.
+Parents: Can track child’s performance and provide feedback.
+Faculty: Can assign and view student marks and progress.
+Functional Requirements
+Role-Based Access Control:
+Admin/Management have full access.
+Students can edit only their own data.
+Parents have view-only access.
+Student Dashboard:
+Displays personal details, talent assessments, and achievements.
+Allows students to upload proofs of completed training programs and projects.
+Skill-Based Analysis:
+Educators can assess student skills and offer personalized learning pathways.
+Reporting and Analytics:
+Generate reports based on student data to help educators, parents, and admins make informed decisions.
+Data Privacy and Security:
+JWT authentication, HTTPS, encryption to ensure the security of student data.
+Setup and Installation
+Prerequisites
+Java 11 or later for Spring Boot
+Node.js and npm for React
+MySQL database server
+Docker (Optional for deployment)
+Backend Setup (Spring Boot)
+Clone the repository:
 
-## Available Scripts
+bash
+Copy code
+git clone https://github.com/your-username/student-training-system.git
+cd student-training-system
+Build and run the Spring Boot application:
 
-In the project directory, you can run:
+bash
+Copy code
+./mvnw spring-boot:run
+Ensure that MySQL is installed and running. Configure the database connection in application.properties:
 
-### `npm start`
+properties
+Copy code
+spring.datasource.url=jdbc:mysql://localhost:3306/studentdb
+spring.datasource.username=root
+spring.datasource.password=password
+Frontend Setup (React)
+Navigate to the frontend folder:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+bash
+Copy code
+cd frontend
+Install dependencies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+bash
+Copy code
+npm install
+Run the React development server:
 
-### `npm test`
+bash
+Copy code
+npm start
+Database Setup (MySQL)
+Create the database:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+sql
+Copy code
+CREATE DATABASE studentdb;
+Run the schema script to set up the necessary tables.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-Running the Backend Server
-In the project directory, you can run:
-
-node server.js
-Starts the backend server.
-Ensure that the server.js file exists in the project directory and is properly configured.
-
-The backend server listens for API requests. By default, it may run on http://localhost:5000 or another port you specify in the server.js file.
-
-Note: Make sure you have installed all required dependencies for the backend by running npm install in the project directory.
-
+Usage
+Students can log in to their dashboard to track their progress, view training marks, and upload proofs for completed projects and skills.
+Admin/Management can view all student profiles, filter by skills or projects, and generate reports.
+Parents can track their child's progress over time and communicate with educators.
+Faculty can update and assign marks for training programs.
+Security
+Authentication: Spring Security with JWT tokens.
+Data Encryption: Sensitive data such as passwords are stored in encrypted form.
+HTTPS: All communication with the system is encrypted using SSL/TLS.
+Roadmap
+Version 1.0: Initial release with student data management and dashboards.
+Version 2.0: Integration of skill-based analysis and reporting tools.
+Version 3.0: Enhanced reporting features and advanced data analytics.
+Contributing
+Fork the repository.
+Create a new branch for your feature or bug fix.
+Commit your changes.
+Push to the branch.
+Create a pull request.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
