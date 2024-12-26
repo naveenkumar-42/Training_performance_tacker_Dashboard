@@ -9,7 +9,7 @@ const Admin = () => {
   const [studentsData, setStudentsData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Fetch data from the API
+
   useEffect(() => {
     const fetchData = async () => {
       try {

@@ -58,6 +58,12 @@ const SettingsPage = () => {
     setSettings({ ...settings, language: e.target.value });
   };
 
+  document.getElementById("settings").addEventListener("click", disp);
+
+  const disp = () => {
+    console.log(settings);
+  }
+ 
   return (
     <div className="settings">
       <NavBar />
