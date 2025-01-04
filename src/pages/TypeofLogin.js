@@ -10,6 +10,10 @@ function App() {
     navigate('/login'); // Navigate to the login page
   };
 
+  const handleLoginAdmin = () => {
+    navigate('/Admin'); // Navigate to the login page
+  };
+
   return (
     <div className="container">
       <div className="login-card">
@@ -17,7 +21,7 @@ function App() {
         <h2>Welcome to Training Performance Tracker</h2>
         <p>Log in as</p>
         <div className="button-container">
-          <button className="login-button" onClick={handleLoginRedirect}>
+          <button className="login-button" onClick={handleLoginAdmin}>
             <FaUserTie /> ADMIN
           </button>
           <button className="login-button" onClick={handleLoginRedirect}>

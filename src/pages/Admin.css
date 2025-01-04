@@ -7,6 +7,13 @@
   height: 100vh;
 }
 
+.student-header-top{
+    width: 98%;
+    padding: var(--padding-mid);
+    background-color: var(--color-darkslategray-100);
+    text-align: center;
+}
+
 .image {
   width: 100%;
 }
@@ -108,8 +115,6 @@
   flex: 1;
   text-align: center; /* Center-align text */
 }
-
-
 @media (max-width: 600px) {
   .students-header {
     flex-direction: column;

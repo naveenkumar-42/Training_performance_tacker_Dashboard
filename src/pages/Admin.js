@@ -47,7 +47,7 @@ const Admin = () => {
     <div className="admin">
       <main className="image">
         <NavBar />
-        <section className="students-header-wrapper">
+        <section className="students-header-top">
           <div className="students-header">
             <div className="students-header-wrapper">
               <h1 className="a-title">Students List</h1>
