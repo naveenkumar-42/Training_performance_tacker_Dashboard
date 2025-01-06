@@ -9,7 +9,7 @@
   max-width: 600px; 
   margin: 0 auto; 
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px; /* Rounds the corners of the container */
   background-color: #fff; /* Set the background color to white */
 }
