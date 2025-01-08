@@ -22,7 +22,7 @@ const StudentDashboard = () => {
     warden: ''
   });
 
-  // Add state for p_profile
+ 
   const [p_profile, setPProfile] = useState({
     FsRank: '',
     PCumulative: '',
@@ -43,7 +43,7 @@ const StudentDashboard = () => {
     t_remarks: ''   
   });
 
-  // Fetch profile data
+ 
   useEffect(() => {
     fetch('http://localhost:3001/profile')
       .then(response => {
@@ -53,7 +53,7 @@ const StudentDashboard = () => {
         return response.json();
       })
       .then(data => {
-        console.log('Fetched profile data:', data); // Debugging log
+        console.log('Fetched profile data:', data);
         if (data.length > 0) {
           const base64Image = `data:image/jpeg;base64,${data[0].image}`;
           setProfile({
@@ -74,7 +74,7 @@ const StudentDashboard = () => {
       .catch(error => console.error('Error fetching profile:', error));
   }, []);
 
-  // Fetch p_profile data
+ 
   useEffect(() => {
     fetch('http://localhost:3001/p_profile')
       .then(response => {
@@ -84,7 +84,7 @@ const StudentDashboard = () => {
         return response.json();
       })
       .then(data => {
-        console.log('Fetched p_profile data:', data); // Debugging log
+        console.log('Fetched p_profile data:', data);
         if (data.length > 0) {
           setPProfile({
             FsRank: data[0].FsRank,

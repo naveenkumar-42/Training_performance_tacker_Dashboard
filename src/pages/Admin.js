@@ -22,13 +22,13 @@ const Admin = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array to fetch data once on component mount
+  }, []); 
 
   const onSelectionClick = useCallback((rollNo) => {
-    navigate(`/profile`); // Navigate to the selected student's profile
+    navigate(`/profile`); 
   }, [navigate]);
 
-  // Filter and sort students based on the search term
+  
   const filteredStudents = studentsData.filter(student => {
     const term = searchTerm.toLowerCase();
     if (term === "c" || term === "java" || term === "python" || term === "dsa" || term === "mysql" || term === "ui") {
@@ -38,9 +38,9 @@ const Admin = () => {
   }).sort((a, b) => {
     const term = searchTerm.toLowerCase();
     if (term === "c" || term === "java" || term === "python" || term === "dsa" || term === "mysql" || term === "ui") {
-      return b[term] - a[term]; // Sort by highest to lowest marks
+      return b[term] - a[term]; 
     }
-    return 0; // No sorting if searching by name
+    return 0; 
   });
 
   return (
