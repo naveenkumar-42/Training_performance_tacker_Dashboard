@@ -1,7 +1,7 @@
 import { useCallback, useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
-import { FaSearch, FaUser, FaChartBar, FaCog } from "react-icons/fa";
+import { FaSearch, FaFilter } from "react-icons/fa";
 import "./Admin.css";
 
 const Admin = () => {
@@ -34,7 +34,8 @@ const Admin = () => {
     if (term === "c" || term === "java" || term === "python" || term === "dsa" || term === "mysql" || term === "ui") {
       return student[term] !== undefined;
     }
-    return student.name.toLowerCase().includes(term);
+    return student.name.toLowerCase().includes(term) || student.roll_no.toLowerCase().includes(term);
+
   }).sort((a, b) => {
     const term = searchTerm.toLowerCase();
     if (term === "c" || term === "java" || term === "python" || term === "dsa" || term === "mysql" || term === "ui") {
@@ -63,6 +64,7 @@ const Admin = () => {
                   <FaSearch />
                 </div>
               </div>
+              <div className="filter"></div><FaFilter /> 
             </div>
           </div>
           <div className="students-list">
