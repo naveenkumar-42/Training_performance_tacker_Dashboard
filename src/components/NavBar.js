@@ -3,33 +3,33 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { FiLogOut } from 'react-icons/fi';
 import { FaHome, FaUser, FaChartBar } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
-import { Client, Account } from 'appwrite'; // Appwrite SDK for authentication
+import { Client, Account } from 'appwrite'; 
 import "./NavBar.css";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // State to control menu visibility
+  const [menuOpen, setMenuOpen] = useState(false); 
 
   const client = new Client();
   client
-    .setEndpoint('https://cloud.appwrite.io/v1') // Your Appwrite endpoint
-    .setProject('66ef10510008d8d30400'); // Your Appwrite project ID
+    .setEndpoint('https://cloud.appwrite.io/v1') 
+    .setProject('66ef10510008d8d30400'); 
 
   const account = new Account(client);
 
-  // Check if the user is authenticated by restoring session from localStorage
+  
   useEffect(() => {
     const storedSession = localStorage.getItem('userSession');
     if (storedSession) {
-      setIsAuthenticated(true); // Mark user as authenticated
+      setIsAuthenticated(true); 
     } else {
       console.warn('No session found in localStorage');
-      setIsAuthenticated(false); // No session, set to false
+      setIsAuthenticated(false); 
     }
   }, []);
 
-  // Handle logout
+  
   const handleLogout = useCallback(async () => {
     if (!isAuthenticated) {
       console.warn('User is not authenticated. Cannot log out.');
@@ -37,18 +37,18 @@ const NavBar = () => {
     }
 
     try {
-      await account.deleteSession('current'); // Log out the current session
+      await account.deleteSession('current'); 
       console.log('Successfully logged out.');
       
-      // Clear session storage
+      
       localStorage.clear();
       sessionStorage.clear();
       
-      // Optionally log out of Google as well
+      
       window.location.href = "https://accounts.google.com/logout";
       
-      setIsAuthenticated(false); // Mark user as logged out
-      navigate('/'); // Redirect to login
+      setIsAuthenticated(false); 
+      navigate('/'); 
     } catch (error) {
       console.error('Logout failed:', error.message);
     }
@@ -56,14 +56,14 @@ const NavBar = () => {
 
   const navItems = [
     { icon: <FaHome />, label: "Profile", path: "/profile" },
-    // { icon: <FaUser />, label: "Admin", path: "/Admin" },
+    
     { icon: <FaChartBar />, label: "Resource", path: "/details" },
     { icon: <IoSettingsSharp />, label: "Settings", path: "/settings" },
     { icon: <FiLogOut />, label: "Logout", path: "/", action: handleLogout },
   ];
 
   const toggleMenu = () => {
-    setMenuOpen((prev) => !prev); // Toggle menu open state
+    setMenuOpen((prev) => !prev); 
   };
 
   return (
@@ -82,7 +82,7 @@ const NavBar = () => {
               key={index}
               to={item.path}
               className="nav-item"
-              onClick={item.label === "Logout" ? item.action : null} // Attach logout handler
+              onClick={item.label === "Logout" ? item.action : null} 
               exact
             >
               <span className="icon">{item.icon}</span>

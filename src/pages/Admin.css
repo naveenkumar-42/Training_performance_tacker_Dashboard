@@ -20,7 +20,7 @@
 
 .students-header-wrapper {
   width: 98%;
-  padding: var(--padding-mid); /* Use variable for padding */
+  padding: var(--padding-mid); 
   background-color: var(--color-darkslategray-100); 
   text-align: center;
 }
@@ -29,11 +29,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--color-white); /* Apply theme color */
+  color: var(--color-white); 
 }
 
 .students-title {
-  font-size: var(--font-size-xl); /* Use variable for font size */
+  font-size: var(--font-size-xl); 
   font-weight: bold;
   margin-bottom: 4px;
 }
@@ -46,12 +46,12 @@
 
 .search-input {
   padding: 10px;
-  border: 1px solid #ccc; /* You can change this if needed */
+  border: 1px solid #ccc; 
   border-radius: 5px;
   margin-right: 10px;
   flex-grow: 1;
-  background-color: var(--color-darkslategray-300); /* Apply theme color */
-  color: var(--color-white); /* Text color */
+  background-color: var(--color-darkslategray-300); 
+  color: var(--color-white); 
 }
 
 .search-icon {
@@ -71,7 +71,7 @@
   display: flex;
   justify-content: space-between;
   padding: 15px;
-  border: 1px solid #ddd; /* You can change this if needed */
+  border: 1px solid #ddd; 
   margin-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -79,7 +79,7 @@
 }
 
 .student-row:hover {
-  background-color: #e6f7ff; /* Adjust hover effect if needed */
+  background-color: #e6f7ff; 
 }
 
 .student-details {
@@ -93,7 +93,7 @@
 .student-level {
   flex: 1;
   text-align: center;
-  color: var(--color-white); /* Apply theme color */
+  color: var(--color-white); 
 }
 
 .student-header {
@@ -102,9 +102,9 @@
   padding: 10px;
   font-weight: bold;
   margin-bottom: 10px;
-  background-color: var(--color-darkslategray-300); /* Optional header background */
-  color: var(--color-white); /* Optional text color */
-  border-bottom: 2px solid #ddd; /* Optional border */
+  background-color: var(--color-darkslategray-300); 
+  color: var(--color-white); 
+  border-bottom: 2px solid #ddd; 
 }
 .a-title{
   padding: 10px;
@@ -113,7 +113,7 @@
 
 .student-header-item {
   flex: 1;
-  text-align: center; /* Center-align text */
+  text-align: center; 
 }
 @media (max-width: 600px) {
   .students-header {
