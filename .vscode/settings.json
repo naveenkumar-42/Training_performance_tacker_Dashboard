@@ -9,8 +9,8 @@
       "server": "localhost",
       "port": 3306,
       "driver": "MySQL",
-      "name": "student",
-      "database": "student_dashboard",
+      "name": "student_dashboard",
+      "database": "student",
       "username": "root",
       "password": ""
     }

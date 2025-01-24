@@ -10,7 +10,7 @@ const pool = mysql.createPool({
     port: 3306,
     user: 'root',
     password: '',
-    database: 'student_dashboard',
+    database: 'student',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
@@ -26,6 +26,7 @@ app.get('/students', (req, res) => {
     const sql = 'SELECT * FROM students';
     promisePool.query(sql)
         .then(([rows, fields]) => {
+            console.log('Fetched students:', rows); // Add this line
             return res.json(rows);
         })
         .catch((err) => {

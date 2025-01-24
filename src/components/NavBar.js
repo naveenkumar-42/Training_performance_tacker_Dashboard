@@ -65,6 +65,7 @@ const NavBar = () => {
     setMenuOpen((prev) => !prev); 
   };
 
+  
   return (
     <div className="horizontal-navbar">
       <div className="nav-title">
