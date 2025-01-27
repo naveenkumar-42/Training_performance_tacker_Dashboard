@@ -52,9 +52,9 @@ const BarChart = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array to run once on mount
+  }, []); 
 
-  // Chart options with custom font styles
+  
   const options = {
     responsive: true,
     plugins: {
@@ -62,18 +62,18 @@ const BarChart = () => {
         position: 'top',
         labels: {
           font: {
-            size: 18, // Custom font size for legend
+            size: 18, 
           },
-          color: '#e9ecf1', // Custom font color for legend
+          color: '#e9ecf1', 
         },
       },
       title: {
         display: true,
         text: 'Fullstack Rank Points Chart',
         font: {
-          size: 24, // Custom font size for the title
+          size: 24, 
         },
-        color: '#ffffff', // Custom font color for the title
+        color: '#ffffff', 
       },
     },
     scales: {
@@ -82,17 +82,17 @@ const BarChart = () => {
         max: 100,
         ticks: {
           font: {
-            size: 14, // Custom font size for y-axis labels
+            size: 14, 
           },
-          color: '#e9ecf1', // Custom font color for y-axis labels
+          color: '#e9ecf1', 
         },
       },
       x: {
         ticks: {
           font: {
-            size: 14, // Custom font size for x-axis labels
+            size: 14, 
           },
-          color: '#e9ecf1', // Custom font color for x-axis labels
+          color: '#e9ecf1', 
         },
       },
     },
