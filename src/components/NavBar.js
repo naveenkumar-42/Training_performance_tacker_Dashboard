@@ -40,7 +40,6 @@ const NavBar = () => {
       await account.deleteSession('current'); 
       console.log('Successfully logged out.');
       
-      
       localStorage.clear();
       sessionStorage.clear();
       
@@ -73,7 +72,9 @@ const NavBar = () => {
       </div>
       <div className="menu-toggle" onClick={toggleMenu}>
         {/* Hamburger Icon */}
+
         {menuOpen ? "✖" : "☰"}
+
       </div>
       <div className={`nav-items-container ${menuOpen ? 'open' : ''}`}>
         <div className="nav-items">
