@@ -43,7 +43,7 @@ const Login = () => {
   
   const handleGoogleLogin = useCallback(async () => {
     try {
-      await account.createOAuth2Session('google', 'http://localhost:3000/profile/', 'http://localhost:3000/');
+      await account.createOAuth2Session('google', 'https://training-performance-tacker-dashboard-62fp.vercel.app/profile', 'http://localhost:3000/');
       const session = await account.get();  
       localStorage.setItem('userSession', JSON.stringify(session));  
       console.log('Google OAuth session created:', session);
