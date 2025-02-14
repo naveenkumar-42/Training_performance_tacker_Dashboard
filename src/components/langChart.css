@@ -2,11 +2,12 @@
   display: flex;
   justify-content: space-around;  /* Align the charts side by side */
   padding: 5px;
+
 }
 
 .speedometer-container {
-  width: 200px; /* Adjust size to fit the chart container */
-  height: 250px; /* Make room for the chart and title */
+  width: 100%;
+  height: 100%; /* Make room for the chart and title */
   display: flex;
   flex-direction: column;
   align-items: center;

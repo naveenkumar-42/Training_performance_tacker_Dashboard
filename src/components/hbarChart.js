@@ -107,6 +107,16 @@ class ApexChart extends React.Component {
     }
   };
 
+  // return(isAuthenticated?) {
+  //   while (isAuthenticated) {
+  //     return (
+  //       <div>
+  //       < /NavBar>
+  //       </div>
+  //     );
+  //   } 
+  // }
+
   render() {
     return (
       <div className="apex-chart-container">

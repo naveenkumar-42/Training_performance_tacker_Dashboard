@@ -96,7 +96,7 @@ const LangChart = ({ value, valueMax, title }) => {
 
   return (
     <div className="speedometer-container">
-      <Chart options={options} series={options.series} type="radialBar" height={350} />
+      <Chart options={options} series={options.series} type="radialBar" height={200} />
       <h1 className='h-title'>{title}</h1>
       <button className="openapi" onClick={handleDetailsClick}>
         <b className="details2">Details</b>
