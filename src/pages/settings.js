@@ -103,7 +103,6 @@ const SettingsPage = () => {
           </div>
         </div>
 
-        {/* Basic Settings */}
         <div className="settings-section basic-settings">
           <h3>Basic Settings</h3>
           <div className="setting-item">
@@ -173,7 +172,6 @@ const SettingsPage = () => {
               placeholder="Your feedback here..."
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}
-              required
             />
             <button type="submit">Submit Feedback</button>
           </form>
