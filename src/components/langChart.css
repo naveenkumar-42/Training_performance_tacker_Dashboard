@@ -1,13 +1,12 @@
 .charts-container {
   display: flex;
-  justify-content: space-around;  /* Align the charts side by side */
+  justify-content: space-around;
   padding: 5px;
-
 }
 
 .speedometer-container {
   width: 100%;
-  height: 100%; /* Make room for the chart and title */
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +18,7 @@
   text-align: center;
 }
 
-.h-title{
+.h-title {
   margin: 100px;
   padding: 20px;
   -webkit-animation-name: rgb(72, 125, 77);
@@ -28,7 +27,7 @@
 }
 
 button.openapi {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   border: none;
   color: white;
   padding: 8px 16px;
