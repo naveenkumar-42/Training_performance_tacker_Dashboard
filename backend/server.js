@@ -26,7 +26,7 @@ app.get('/students', (req, res) => {
     const sql = 'SELECT * FROM students';
     promisePool.query(sql)
         .then(([rows, fields]) => {
-            console.log('Fetched students:', rows); // Add this line
+            console.log('Fetched students:', rows); 
             return res.json(rows);
         })
         .catch((err) => {
@@ -130,11 +130,11 @@ app.get('/profile', (req, res) => {
         })
         .catch((err) => {
             console.error('Error executing query:', err);
-            return res.status(500).json({ error: 'Internal Server Error' });
+            return res.json(err);
         });
 });
 
-// admin_server
+
 app.get('/admin_page', (req, res) => {
     const sql = 'SELECT * FROM admin_page';
     promisePool.query(sql)
