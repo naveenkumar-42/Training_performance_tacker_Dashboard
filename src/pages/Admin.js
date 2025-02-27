@@ -30,8 +30,8 @@ const Admin = () => {
 
   
   const filteredStudents = studentsData.filter(student => {
-    const term = searchTerm.toLowerCase();
-    if (term === "c" || term === "java" || term === "python" || term === "dsa" || term === "mysql" || term === "ui") {
+    const term = searchTerm.toLowerCase()
+    if (term == "c" || term == "java" || term == "python" || term == "dsa" || term == "mysql" || term == "ui") {
       return student[term] !== undefined;
     }
     return student.name.toLowerCase().includes(term) || student.roll_no.toLowerCase().includes(term);
