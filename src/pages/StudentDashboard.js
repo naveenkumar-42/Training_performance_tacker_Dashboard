@@ -7,7 +7,6 @@ import "./StudentDashboard.css";
 import PresentChart from "../components/PresentChart";
 import HbarChart from "../components/hbarChart";
 const StudentDashboard = () => {
-  const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
     id: '',

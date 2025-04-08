@@ -47,14 +47,13 @@ const SettingsPage = () => {
     });
   };
 
-  // Handle feedback submission
+  // updated feedback handel using the states
   const handleFeedbackSubmit = (e) => {
     e.preventDefault();
     console.log('Feedback submitted:', feedback);
     setFeedback(''); // Clear feedback
   };
 
-  // Handle language selection
   const handleLanguageChange = (e) => {
     setSettings({ ...settings, language: e.target.value });
   };
