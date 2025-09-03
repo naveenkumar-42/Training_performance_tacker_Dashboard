@@ -12,6 +12,7 @@ const Login = () => {
   client
     .setEndpoint('https://cloud.appwrite.io/v1') 
     .setProject('66ef10510008d8d30400'); 
+    
 
   const account = new Account(client);
 

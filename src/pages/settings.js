@@ -4,25 +4,33 @@ import './settings.css';
 
 const SettingsPage = () => {
   const [settings, setSettings] = useState(() => {
-    const savedSettings = localStorage.getItem('settings');
-    return savedSettings ? JSON.parse(savedSettings) : {
-      notifications: true,
-      darkMode: false,
-      language: 'English',
-    };
+    const saved = localStorage.getItem('settings');
+    return saved
+      ? JSON.parse(saved)
+      : {
+          notifications: true,
+          darkMode: false,
+          language: 'English',
+          region: 'India',
+          dataSharing: false,
+          twoFactorAuth: false,
+        };
   });
 
   const [profile, setProfile] = useState(() => {
-    const savedProfile = localStorage.getItem('profile');
-    return savedProfile ? JSON.parse(savedProfile) : {
-      username: '',
-      email: '',
-      password: '',
-    };
+    const saved = localStorage.getItem('profile');
+    return saved
+      ? JSON.parse(saved)
+      : {
+          username: '',
+          email: '',
+          password: '',
+          profileImage: '',
+        };
   });
 
-
   const [feedback, setFeedback] = useState('');
+  const [feedbackType, setFeedbackType] = useState('General');
 
   useEffect(() => {
     localStorage.setItem('settings', JSON.stringify(settings));
@@ -33,45 +41,65 @@ const SettingsPage = () => {
   }, [profile]);
 
   const handleToggle = (e) => {
-    setSettings({
-      ...settings,
-      [e.target.name]: e.target.checked
-    });
+    setSettings({ ...settings, [e.target.name]: e.target.checked });
   };
-
 
   const handleProfileChange = (e) => {
-    setProfile({
-      ...profile,
-      [e.target.name]: e.target.value,
-    });
+    setProfile({ ...profile, [e.target.name]: e.target.value });
   };
 
-  // updated feedback handel using the states
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfile({ ...profile, profileImage: reader.result });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleFeedbackSubmit = (e) => {
     e.preventDefault();
-    console.log('Feedback submitted:', feedback);
-    setFeedback(''); // Clear feedback
+    console.log('Feedback:', { feedbackType, feedback });
+    setFeedback('');
   };
 
   const handleLanguageChange = (e) => {
     setSettings({ ...settings, language: e.target.value });
   };
- 
+
+  const handleRegionChange = (e) => {
+    setSettings({ ...settings, region: e.target.value });
+  };
+
+  const handleAccountAction = (action) => {
+    if (window.confirm(`Are you sure you want to ${action} your account?`)) {
+      console.log(`${action} account triggered`);
+    }
+  };
+
   return (
     <div className="settings">
       <NavBar />
       <section className="settings-page">
-        <h2>Settings</h2>
+        <h2>Account Settings</h2>
 
-        {/* Profile Settings */}
-        <div className="settings-section profile-settings">
-          <h3>Profile Settings</h3>
+        {/* Profile */}
+        <div className="settings-section">
+          <h3>Profile Information</h3>
+          <div className="profile-img">
+            {profile.profileImage ? (
+              <img src={profile.profileImage} alt="Profile" />
+            ) : (
+              <div className="placeholder">No Image</div>
+            )}
+            <input type="file" accept="image/*" onChange={handleImageUpload} />
+          </div>
           <div className="setting-item">
-            <label htmlFor="username">Username</label>
+            <label>Username</label>
             <input
               type="text"
-              id="username"
               name="username"
               value={profile.username}
               onChange={handleProfileChange}
@@ -79,10 +107,9 @@ const SettingsPage = () => {
             />
           </div>
           <div className="setting-item">
-            <label htmlFor="email">Email</label>
+            <label>Email</label>
             <input
               type="email"
-              id="email"
               name="email"
               value={profile.email}
               onChange={handleProfileChange}
@@ -90,85 +117,120 @@ const SettingsPage = () => {
             />
           </div>
           <div className="setting-item">
-            <label htmlFor="password">Password</label>
+            <label>Change Password</label>
             <input
               type="password"
-              id="password"
               name="password"
               value={profile.password}
               onChange={handleProfileChange}
-              placeholder="Enter a new password"
+              placeholder="Enter new password"
             />
           </div>
         </div>
 
-        <div className="settings-section basic-settings">
-          <h3>Basic Settings</h3>
+        {/* Preferences */}
+        <div className="settings-section">
+          <h3>Preferences</h3>
           <div className="setting-item">
-            <label htmlFor="notifications">Enable Notifications</label>
+            <label>Notifications</label>
             <input
               type="checkbox"
-              id="notifications"
               name="notifications"
               checked={settings.notifications}
               onChange={handleToggle}
             />
           </div>
           <div className="setting-item">
-            <label htmlFor="darkMode">Enable Dark Mode</label>
-            <input
-              type="checkbox"
-              id="darkMode"
-              name="darkMode"
-              checked={settings.darkMode}
-              onChange={handleToggle}
-            />
+            <label>Theme</label>
+            <select
+              value={settings.darkMode ? 'Dark' : 'Light'}
+              onChange={(e) =>
+                setSettings({
+                  ...settings,
+                  darkMode: e.target.value === 'Dark',
+                })
+              }
+            >
+              <option value="System">System Default</option>
+              <option value="Light">Light</option>
+              <option value="Dark">Dark</option>
+            </select>
           </div>
           <div className="setting-item">
-            <label htmlFor="language">Preferred Language</label>
-            <select id="language" value={settings.language} onChange={handleLanguageChange}>
-              <option value="English">English</option>
-              <option value="Spanish">Spanish</option>
-              <option value="French">French</option>
-              <option value="German">German</option>
+            <label>Language</label>
+            <select value={settings.language} onChange={handleLanguageChange}>
+              <option>English</option>
+              <option>Spanish</option>
+              <option>French</option>
+              <option>German</option>
+            </select>
+          </div>
+          <div className="setting-item">
+            <label>Region</label>
+            <select value={settings.region} onChange={handleRegionChange}>
+              <option>India</option>
+              <option>United States</option>
+              <option>UK</option>
+              <option>Germany</option>
+              <option>Japan</option>
             </select>
           </div>
         </div>
 
-        {/* Theme Selection */}
-        <div className="settings-section theme-settings">
-          <h3>Theme Selection</h3>
-          <div className="theme-options">
-            <button className={`theme-btn ${settings.darkMode ? 'active' : ''}`}>
-              Dark Theme
-            </button>
-            <button className={`theme-btn ${!settings.darkMode ? 'active' : ''}`}>
-              Light Theme
-            </button>
-          </div>
-        </div>
-
-        {/* Privacy Settings */}
-        <div className="settings-section privacy-settings">
-          <h3>Privacy Settings</h3>
+        {/* Privacy & Security */}
+        <div className="settings-section">
+          <h3>Privacy & Security</h3>
           <div className="setting-item">
-            <label htmlFor="data-sharing">Allow Data Sharing</label>
+            <label>Allow Data Sharing</label>
             <input
               type="checkbox"
-              id="data-sharing"
               name="dataSharing"
               checked={settings.dataSharing}
               onChange={handleToggle}
             />
           </div>
+          <div className="setting-item">
+            <label>Two-Factor Authentication</label>
+            <input
+              type="checkbox"
+              name="twoFactorAuth"
+              checked={settings.twoFactorAuth}
+              onChange={handleToggle}
+            />
+          </div>
+          <div className="account-actions">
+            <button
+              className="danger-btn"
+              onClick={() => handleAccountAction('deactivate')}
+            >
+              Deactivate Account
+            </button>
+            <button
+              className="danger-btn"
+              onClick={() => handleAccountAction('delete')}
+            >
+              Delete Account
+            </button>
+          </div>
         </div>
 
-        {/* Feedback Section */}
-        <div className="feedback-section">
-          <h3>Feedback</h3>
+        {/* Feedback */}
+        <div className="settings-section">
+          <h3>Feedback & Support</h3>
           <form onSubmit={handleFeedbackSubmit}>
+            <div className="setting-item">
+              <label>Category</label>
+              <select
+                value={feedbackType}
+                onChange={(e) => setFeedbackType(e.target.value)}
+              >
+                <option>General</option>
+                <option>Bug Report</option>
+                <option>Feature Request</option>
+              </select>
+            </div>
             <textarea
-              placeholder="Your feedback here..."
+              placeholder="Share your feedback..."
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}
             />
