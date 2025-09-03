@@ -230,7 +230,7 @@ const StudentDashboard = () => {
 
         <div className="attendance-card">
           <div className="attendance-info">
-            <div className="attendance-heading">Training Assessment</div>
+            <div className="attendance-heading">T&P Assessment</div>
             <div className="attendance-value">{p_attendance.t_p_days}</div>
             <div className="attendance-remarks">{p_attendance.t_remarks}</div>
           </div>
