@@ -161,7 +161,6 @@ const SettingsPage = () => {
             <select value={settings.language} onChange={handleLanguageChange}>
               <option>English</option>
               <option>Spanish</option>
-              <option>French</option>
               <option>German</option>
             </select>
           </div>
@@ -172,7 +171,6 @@ const SettingsPage = () => {
               <option>United States</option>
               <option>UK</option>
               <option>Germany</option>
-              <option>Japan</option>
             </select>
           </div>
         </div>

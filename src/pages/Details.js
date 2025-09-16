@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'; // Import useState and useEffect
+import React, { useState, useEffect } from 'react';
 import './Details.css';
 import NavBar from '../components/NavBar';
-import Table from '../components/table'; // Import the Table component
+import Table from '../components/table';
 
 const Dashboard = () => {
   const [skills, setSkills] = useState([]);
@@ -11,7 +11,7 @@ const Dashboard = () => {
   const [githubProjectsData, setGithubProjectsData] = useState([]);
   const [achievementsData, setAchievementsData] = useState([]);
 
-  // Fetch data from APIs
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -46,10 +46,10 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  // Define the table headers
+ 
   const headers = ['Semester', 'Skill Code', 'Skill Name', 'Skill Type', 'Skill Mark', 'Total Mark'];
 
-  // Map the skills data into an array of arrays (for each row)
+ 
   const tableData = skills.map(skill => [
     skill.c_sem,
     skill.s_code,
@@ -59,7 +59,7 @@ const Dashboard = () => {
     skill.t_mark
   ]);
 
-  // Map data for each section
+ 
   const fullStackRankHeaders = ['Progression Point', 'Stage Point', 'Level Completion Point', 'Overall Point'];
   const fullStackRankMapped = fullStackRankData.map(data => [
     data.progression_point,

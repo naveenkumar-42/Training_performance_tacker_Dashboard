@@ -104,8 +104,8 @@ const StudentDashboard = () => {
         return response.json();
       })
       .then(data => {
-        console.log('Fetched skills data:', data); // Debugging log
-        setSkills(data); // Update state with fetched data
+        console.log('Fetched skills data:', data);
+        setSkills(data);
       })
       .catch(error => console.error('Error fetching skills data:', error));
   }, []);
@@ -140,7 +140,6 @@ const StudentDashboard = () => {
   return (
     <section className="student-dashboard">
         <NavBar />
-      {/* Top Section */}
       <section className="top">
         <div className="p_img_detail">
           <img
@@ -204,7 +203,6 @@ const StudentDashboard = () => {
         </div>
       </section>
       
-      {/* Top-Mid Section */}
       <section className="attendance-container">
         <div className="attendance-card">
           <div className="attendance-info">
@@ -241,7 +239,6 @@ const StudentDashboard = () => {
       </section>
 
       
-      {/* Middle Section */}
     <section className="middle">
       <div className="bar-chart-container">
         <BarChart />
@@ -251,14 +248,12 @@ const StudentDashboard = () => {
       </div>
     </section>
       
-      {/* Bottom Section */}
   <section className="skills-section">
       <div className="skills-wrapper">
         <div className="skill-chart">
           {skills.map((skill, index) => (
             <div className="skill-graph" key={index}>
               <div className="chart-item">
-                {/* Dynamically render LangChart with API data */}
                 <LangChart value={skill.s_level} valueMax={skill.s_max} title={skill.s_name} />
               </div>
             </div>

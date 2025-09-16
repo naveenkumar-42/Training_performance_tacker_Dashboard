@@ -69,7 +69,7 @@ const Admin = () => {
           </div>
           <div className="students-list">
             <div className="student-records">
-              {/* Table Headings */}
+      
               <div className="student-header">
                 <span className="student-header-item">Roll No</span>
                 <span className="student-header-item">Name</span>
@@ -80,7 +80,7 @@ const Admin = () => {
                 <span className="student-header-item">UI/UX</span>
                 <span className="student-header-item">DSA</span>
               </div>
-              {/* Student Records */}
+      
               {filteredStudents.map((student, index) => (
                 <div key={index} className="student-row" onClick={() => onSelectionClick(student.roll_no)}>
                   <div className="student-details">

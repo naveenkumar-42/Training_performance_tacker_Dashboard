@@ -1,17 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import './TypeofLogin.css';
 import { FaUserTie, FaUserGraduate, FaUsers } from 'react-icons/fa';
 
 function App() {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const handleLoginRedirect = () => {
-    navigate('/login'); // Navigate to the login page
+    navigate('/login'); 
   };
 
   const handleLoginAdmin = () => {
-    navigate('/Admin'); // Navigate to the login page
+    navigate('/Admin'); 
   };
 
   return (
