@@ -280,7 +280,9 @@
     margin-bottom: 10px;
   }
 }
-                            /* MIDDLE */
+
+/* Middle */
+
 section.middle {
   display: flex;
   width: 100%; 
@@ -318,7 +320,8 @@ canvas {
 }
 
                           
-                          /* BOTTOM */
+/* BOTTOM */
+
 .skill-chart {
   flex: 1;
   display: flex;
@@ -353,7 +356,9 @@ canvas {
   align-items: center;
   font-family: var(--font-inter);
 }
+
 /* BOTTOM */
+
 .skills-section {
   display: flex;
   justify-content: flex-end;
