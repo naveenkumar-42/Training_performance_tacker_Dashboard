@@ -1,80 +1,95 @@
-/* settings.css */
+/* settings.css - Improved for clarity and reliability */
 
+/* Main settings page container */
 .settings-page {
   padding: 30px;
   max-width: 950px;
   margin: 30px auto;
   background: #1f212e;
   border-radius: 12px;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   color: #f1f1f1;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
+/* Page heading */
 .settings-page h2 {
-  font-size: 28px;
+  font-size: 2rem;
   margin-bottom: 25px;
   text-align: center;
   font-weight: 700;
-  color: #ffffff;
+  color: #fff;
 }
 
+/* Section container */
 .settings-section {
   margin-bottom: 35px;
   padding: 20px;
   border-radius: 10px;
   background: #2a2d3e;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+/* Section heading */
 .settings-section h3 {
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-bottom: 18px;
   color: #00c4ff;
   font-weight: 600;
 }
 
+/* Setting item row */
 .setting-item {
   margin-bottom: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 
+/* Setting item label */
 .setting-item label {
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 500;
   color: #ddd;
   flex: 1;
+  min-width: 120px;
 }
 
-.setting-item input,
+/* Inputs, selects, and textareas */
+.setting-item input:not([type="checkbox"]),
 .setting-item select,
-textarea {
+.setting-item textarea {
   flex: 2;
   padding: 10px;
-  font-size: 15px;
+  font-size: 1rem;
   border-radius: 6px;
   border: 1px solid #444;
-  background: #1f212e;  
+  background: #1f212e;
   color: #fff;
-  transition: 0.3s;
+  transition: border 0.3s, box-shadow 0.3s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.setting-item input:focus,
-textarea:focus,
-select:focus {
+/* Focus state for inputs */
+.setting-item input:not([type="checkbox"]):focus,
+.setting-item select:focus,
+.setting-item textarea:focus {
   border: 1px solid #00c4ff;
-  box-shadow: 0px 0px 8px #00c4ff;
+  box-shadow: 0 0 8px #00c4ff;
   outline: none;
 }
 
+/* Checkbox styling */
 .setting-item input[type="checkbox"] {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  accent-color: #00c4ff;
 }
 
+/* Profile image container */
 .profile-img {
   display: flex;
   align-items: center;
@@ -82,24 +97,20 @@ select:focus {
   gap: 15px;
 }
 
-.profile-img img {
+/* Profile image */
+.profile-img img,
+.profile-img .placeholder {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #00c4ff;
-}
-
-.profile-img .placeholder {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
   background: #444;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #bbb;
-  font-size: 12px;
+  font-size: 1rem;
 }
 
 /* Buttons */
@@ -107,27 +118,31 @@ button {
   margin-top: 12px;
   padding: 12px 20px;
   background: #00c4ff;
-  color: white;
+  color: #fff;
   font-weight: 600;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: background 0.3s;
 }
 
-button:hover {
+button:hover,
+button:focus {
   background: #009ac0;
 }
 
+/* Danger button */
 .danger-btn {
   background: #e74c3c;
   margin-right: 10px;
 }
 
-.danger-btn:hover {
+.danger-btn:hover,
+.danger-btn:focus {
   background: #c0392b;
 }
 
+/* Account actions button group */
 .account-actions {
   display: flex;
   justify-content: flex-end;
@@ -135,8 +150,18 @@ button:hover {
   gap: 10px;
 }
 
-textarea {
+/* Textarea styling */
+textarea,
+.setting-item textarea {
   width: 100%;
   height: 120px;
   resize: none;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #1f212e;
+  color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
 }
