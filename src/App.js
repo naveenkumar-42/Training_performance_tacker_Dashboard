@@ -70,12 +70,19 @@ function App() {
 
   return (
       <Routes>
+
         <Route path="/" element={<TypeofLogin/>} />
+        
         <Route path="/admin" element={<Admin />} />
+        
         <Route path="/details" element={<Details />} />
+        
         <Route path="/login" element={<Login />} />
+        
         <Route path="/settings" element={<Settings />} />
+        
         <Route path="/profile" element={<StudentDashboard />} />
+      
       </Routes>
   );
 }
