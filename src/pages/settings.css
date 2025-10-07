@@ -1,6 +1,6 @@
-/* settings.css - Improved for clarity and reliability */
 
-/* Main settings page container */
+
+
 .settings-page {
   padding: 30px;
   max-width: 950px;
@@ -112,7 +112,7 @@
   font-size: 1rem;
 }
 
-/* Buttons */
+
 button {
   margin-top: 12px;
   padding: 12px 20px;
@@ -130,7 +130,7 @@ button:focus {
   background: #009ac0;
 }
 
-/* Danger button */
+
 .danger-btn {
   background: #e74c3c;
   margin-right: 10px;
@@ -141,7 +141,7 @@ button:focus {
   background: #c0392b;
 }
 
-/* Account actions button group */
+
 .account-actions {
   display: flex;
   justify-content: flex-end;
@@ -149,7 +149,7 @@ button:focus {
   gap: 10px;
 }
 
-/* Textarea styling */
+
 textarea,
 .setting-item textarea {
   width: 100%;
