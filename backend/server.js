@@ -219,6 +219,16 @@ app.get('/achievements', (req, res) => {
         });
 });
 
+app.get("/placement-summary", (req, res) => {
+  const sql = "SELECT * FROM placement_summary";
+  promisePool.query(sql)
+    .then(([rows]) => res.json(rows))
+    .catch((err) => {
+      console.error("Error executing query:", err);
+      res.status(500).json({ error: "Database query failed" });
+    });
+});
+
 const PORT = 3001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

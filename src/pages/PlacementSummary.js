@@ -1,54 +1,98 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
+import { Pie } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import "./PlacementSummary.css";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PlacementSummary = () => {
   const [placements, setPlacements] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/placement_summary")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch placement summary");
-        return res.json();
-      })
-      .then((data) => {
-        console.log("Fetched placement summary:", data);
-        setPlacements(data);
-      })
+    fetch("http://localhost:3001/placement-summary")
+      .then((res) => res.json())
+      .then((data) => setPlacements(data))
       .catch((err) => console.error("Error:", err));
   }, []);
+
+  // Pie chart: count of students per status
+  const statusCounts = placements.reduce((acc, item) => {
+    acc[item.status] = (acc[item.status] || 0) + 1;
+    return acc;
+  }, {});
+
+  const chartData = {
+    labels: Object.keys(statusCounts),
+    datasets: [
+      {
+        data: Object.values(statusCounts),
+        backgroundColor: ["#2ECC71", "#E74C3C", "#F1C40F"], // Passed / Failed / Pending
+        borderWidth: 1,
+      },
+    ],
+  };
 
   return (
     <section className="placement-summary">
       <NavBar />
       <h1 className="summary-title">Placement Summary</h1>
 
-      <div className="placement-container">
-        {placements.length > 0 ? (
-          placements.map((company, index) => (
-            <div className="placement-card" key={index}>
-              <div className="placement-header">
-                <h2>{company.company_name}</h2>
-                <p className={`status-tag ${company.status.toLowerCase()}`}>
-                  {company.status}
-                </p>
-              </div>
+      <div className="chart-section">
+        <h2>Overall Status Distribution</h2>
+        <div className="chart-container">
+          {placements.length > 0 ? (
+            <Pie data={chartData} />
+          ) : (
+            <p>Loading chart...</p>
+          )}
+        </div>
+      </div>
 
-              <div className="placement-details">
-                <p><strong>Role:</strong> {company.role}</p>
-                <p><strong>Date of Drive:</strong> {company.date}</p>
-                <p><strong>Package:</strong> {company.package}</p>
-                <p><strong>Total Rounds:</strong> {company.total_rounds}</p>
-                <p><strong>Completed Rounds:</strong> {company.completed_rounds}</p>
-                <p><strong>Last Round Cleared:</strong> {company.last_round}</p>
-                <p><strong>Reason for Failure:</strong> {company.reason || "N/A"}</p>
-                <p><strong>Feedback:</strong> {company.feedback || "No feedback available"}</p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div className="no-data">No placement data available.</div>
-        )}
+      <div className="table-section">
+        <h2>Detailed Placement Records</h2>
+        <table className="placement-table">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Role</th>
+              <th>Date of Drive</th>
+              <th>Package</th>
+              <th>Total Rounds</th>
+              <th>Completed Rounds</th>
+              <th>Last Round</th>
+              <th>Status</th>
+              <th>Reason</th>
+              <th>Feedback</th>
+            </tr>
+          </thead>
+          <tbody>
+            {placements.map((p, index) => (
+              <tr key={index}>
+                <td>{p.company_name}</td>
+                <td>{p.role}</td>
+                <td>{p.date_of_drive}</td>
+                <td>{p.package}</td>
+                <td>{p.total_rounds}</td>
+                <td>{p.completed_rounds}</td>
+                <td>{p.last_round}</td>
+                <td
+                  className={`status ${
+                    p.status === "Passed"
+                      ? "passed"
+                      : p.status === "Failed"
+                      ? "failed"
+                      : "pending"
+                  }`}
+                >
+                  {p.status}
+                </td>
+                <td>{p.reason || "—"}</td>
+                <td>{p.feedback || "—"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </section>
   );
