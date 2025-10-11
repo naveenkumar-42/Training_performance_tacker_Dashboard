@@ -1,33 +1,35 @@
 .placement-summary {
-display: flex;
-  background-color: var(--color-darkslategray-100);
-  min-height: 100vh;
-  /* padding: 2rem; */
+  display: flex;
+  flex-direction: row;
+  background-color: var(--color-darkslategray-300);
+  align-items: center;
+  color: white;
 }
 
 .summary-title {
   text-align: center;
   font-size: 2rem;
-  color: var(--color-);
-  margin-bottom: 2rem;
+  padding: .1rem;
+  margin-bottom: 1rem;
 }
 
-.chart-section {
-;
-  text-align: center;
-  margin-bottom: 3rem;
+.summary-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
-.chart-container-pie {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
+/* Left section (Table) */
 .table-section {
-  background: var(--color-darkslategray-300);
+  flex: 3;
+  max-width: 75%;
+  background: var(--color-darkslategray-100);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
+  overflow-y: auto;
+  height: 75vh;
 }
 
 .placement-table {
@@ -46,6 +48,24 @@ display: flex;
 .placement-table th {
   background-color: #007bff;
   color: white;
+}
+
+/* Right section (Chart) */
+.chart-section-pie {
+  flex: 1;
+  text-align: center;
+  background: var(--color-darkslategray-300);
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  height: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+}
+
+.chart-container-pie {
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .status.passed {
