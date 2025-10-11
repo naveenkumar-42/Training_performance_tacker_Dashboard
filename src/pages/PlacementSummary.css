@@ -1,28 +1,30 @@
 .placement-summary {
-  background: #f9fafb;
+display: flex;
+  background-color: var(--color-darkslategray-100);
   min-height: 100vh;
-  padding: 2rem;
+  /* padding: 2rem; */
 }
 
 .summary-title {
   text-align: center;
   font-size: 2rem;
-  color: #333;
+  color: var(--color-);
   margin-bottom: 2rem;
 }
 
 .chart-section {
+;
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.chart-container {
+.chart-container-pie {
   max-width: 400px;
   margin: 0 auto;
 }
 
 .table-section {
-  background: #fff;
+  background: var(--color-darkslategray-300);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;

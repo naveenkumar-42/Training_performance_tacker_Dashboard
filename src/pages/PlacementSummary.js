@@ -34,21 +34,10 @@ const PlacementSummary = () => {
   };
 
   return (
-    <section className="placement-summary">
+    <>
       <NavBar />
       <h1 className="summary-title">Placement Summary</h1>
-
-      <div className="chart-section">
-        <h2>Overall Status Distribution</h2>
-        <div className="chart-container">
-          {placements.length > 0 ? (
-            <Pie data={chartData} />
-          ) : (
-            <p>Loading chart...</p>
-          )}
-        </div>
-      </div>
-
+    <section className="placement-summary">
       <div className="table-section">
         <h2>Detailed Placement Records</h2>
         <table className="placement-table">
@@ -94,7 +83,18 @@ const PlacementSummary = () => {
           </tbody>
         </table>
       </div>
+            <div className="chart-section-pie">
+        <h2>Overall Status Distribution</h2>
+        <div className="chart-container-pie">
+          {placements.length > 0 ? (
+            <Pie data={chartData} />
+          ) : (
+            <p>Loading chart...</p>
+          )}
+        </div>
+      </div>
     </section>
+    </>
   );
 };
 
