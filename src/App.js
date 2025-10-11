@@ -11,6 +11,7 @@ import Details from "./pages/Details";
 import TypeofLogin from "./pages/TypeofLogin";
 import Settings from "./pages/settings";
 import Login from "./pages/Login";
+import PlacementSummary from "./pages/PlacementSummary";
 
 function App() {
   const action = useNavigationType();
@@ -52,6 +53,10 @@ function App() {
         title = "Student Dashboard";
         metaDescription = "";
         break;
+      case "placement-summary":
+        title = "Placement Summary";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -82,6 +87,8 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         
         <Route path="/profile" element={<StudentDashboard />} />
+
+        <Route path="/placement-summary" element={<PlacementSummary />} />
       
       </Routes>
   );

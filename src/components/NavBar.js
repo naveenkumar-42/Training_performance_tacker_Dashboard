@@ -55,6 +55,7 @@ const NavBar = () => {
 
   const navItems = [
     { icon: <FaHome />, label: "Profile", path: "/profile" },
+    { icon: <FaUser />, label: "Placement Summary", path: "/placement-summary" },
     { icon: <FaChartBar />, label: "Resource", path: "/details" },
     { icon: <IoSettingsSharp />, label: "Settings", path: "/settings" },
     { icon: <FiLogOut />, label: "Logout", path: "/", action: handleLogout },
