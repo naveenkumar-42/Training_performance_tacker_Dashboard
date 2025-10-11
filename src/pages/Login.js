@@ -39,7 +39,6 @@ const Login = () => {
     }
   }, [account, navigate]);
 
-  // ⬇️ Modified Google Login: skip OAuth and go directly to profile
   const handleGoogleLogin = useCallback(() => {
     console.log("Skipping Google OAuth — redirecting to profile...");
     setIsAuthenticated(true);
