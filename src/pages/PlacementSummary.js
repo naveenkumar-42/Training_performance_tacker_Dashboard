@@ -39,7 +39,7 @@ const PlacementSummary = () => {
       <h1 className="summary-title">Placement Summary</h1>
     <section className="placement-summary">
       <div className="table-section">
-        <h2>Detailed Placement Records</h2>
+        <h2 className="heading-table">Detailed Placement Records</h2>
         <table className="placement-table">
           <thead>
             <tr>
