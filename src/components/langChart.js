@@ -1,11 +1,11 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './langChart.css';
 
 const LangChart = ({ value, valueMax, title }) => {
   const options = {
-    series: [(value / valueMax) * 100], // Convert value to percentage
+    series: [(value / valueMax) * 100],
     chart: {
       height: 350,
       type: 'radialBar',

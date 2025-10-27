@@ -16,7 +16,7 @@ const PlacementSummary = () => {
       .catch((err) => console.error("Error:", err));
   }, []);
 
-  // Pie chart: count of students per status
+  
   const statusCounts = placements.reduce((acc, item) => {
     acc[item.status] = (acc[item.status] || 0) + 1;
     return acc;
@@ -27,7 +27,7 @@ const PlacementSummary = () => {
     datasets: [
       {
         data: Object.values(statusCounts),
-        backgroundColor: ["#2ECC71", "#E74C3C", "#F1C40F"], // Passed / Failed / Pending
+        backgroundColor: ["#2ECC71", "#E74C3C", "#F1C40F"], 
         borderWidth: 1,
       },
     ],
