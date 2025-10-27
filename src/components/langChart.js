@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './langChart.css';
 
 const LangChart = ({ value, valueMax, title }) => {
+  
   const options = {
     series: [(value / valueMax) * 100],
     chart: {
@@ -13,6 +14,7 @@ const LangChart = ({ value, valueMax, title }) => {
         show: false,
       },
     },
+
     plotOptions: {
       radialBar: {
         startAngle: -135,

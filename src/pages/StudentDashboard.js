@@ -225,6 +225,7 @@ const StudentDashboard = () => {
             <PresentChart pd={p_attendance.fa_p_days} td={p_attendance.fa_t_days} />
           </div>
         </div>
+        
 
         <div className="attendance-card">
           <div className="attendance-info">
