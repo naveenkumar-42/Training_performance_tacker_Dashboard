@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import NavBar from "../components/NavBar";
 import LangChart from "../components/langChart";
-import { useNavigate } from "react-router-dom";
 import BarChart from "../components/barChart";
 import "./StudentDashboard.css";
 import PresentChart from "../components/PresentChart";
