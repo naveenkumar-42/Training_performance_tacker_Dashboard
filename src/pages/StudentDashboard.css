@@ -20,10 +20,10 @@
   justify-content: center;
   gap:5px;
 }
-                              /* TOP */
-/* Profile details */
+                              
+
 .p_img_detail {
-  flex: 1; /* Take equal space in the section */
+  flex: 1; 
   background-color: var(--color-darkslategray-300);
   border: 1px solid var(--color-white);
   overflow: hidden;
@@ -46,21 +46,21 @@
   margin-bottom: 10px;
 }
 .status {
-  border: 4px solid #7ade59; /* Initial border color */
+  border: 4px solid #7ade59; 
   padding: var(--padding-lg) var(--padding-xl);
   background-color: #7ade59;
   width: 297px;
   text-align: center;
   justify-content: center;
   box-sizing: border-box;
-  animation:border-rotate 3s infinite linear; /* Add border rotation animation */
+  animation:border-rotate 3s infinite linear; 
 }
 
 .status:hover {
   background-color: #84c56e;
 }
 
-/* Define keyframes for the border color rotation animation */
+
 @keyframes border-rotate {
   0% {
     border-color: #7ade59;
@@ -79,7 +79,7 @@
   }
 }
 
-/* profile details */
+
 .p_details{
   display: flex;
   color:var(--color-whitesmoke);
@@ -122,7 +122,7 @@
   letter-spacing: 2px;
 }
 
-/* Rank Points Section */
+
 .rank-points {
   display: flex;
   justify-content: space-between;
@@ -150,7 +150,7 @@
   color: inherit;
 }
 
-/* Improvement Section */
+
 .improvement-section {
   display: flex;
   flex-direction: column;
@@ -184,7 +184,7 @@
   transition: background-color 0.3s ease;
 }
 
-/* Hover effect for score */
+
 .score:hover {
   background-color: rgba(54, 162, 235, 0.7);
 }
@@ -215,8 +215,8 @@
 }
 
                         
-                      /* MIDDLE TOP */
-/* chart details */
+                      
+
 .attendance-container {
   display: flex;
   justify-content: space-between;
@@ -281,7 +281,7 @@
   }
 }
 
-/* Middle */
+
 
 section.middle {
   display: flex;
@@ -320,7 +320,7 @@ canvas {
 }
 
                           
-/* BOTTOM */
+
 
 .skill-chart {
   flex: 1;
@@ -357,7 +357,7 @@ canvas {
   font-family: var(--font-inter);
 }
 
-/* BOTTOM */
+
 
 .skills-section {
   display: flex;
@@ -390,7 +390,7 @@ canvas {
   align-items: center;
   justify-content: center;
   flex: 1;
-  background-color: var(--color-darkslategray-300); /* darkslategray */
+  background-color: var(--color-darkslategray-300); 
   border: 1px solid white;
   box-sizing: border-box;
   padding: 10px;
