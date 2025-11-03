@@ -23,14 +23,14 @@ ChartJS.register(
 const BarChart = () => {
   const [chartData, setChartData] = useState({ labels: [], datasets: [] });
 
-  // Fetch data from API
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:3001/ps_skill');
         const data = await response.json();
 
-        // Prepare data for the chart
+        
         const labels = data.map(item => item.l_name);
         const points = data.map(item => item.points);
 
