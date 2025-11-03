@@ -6,7 +6,7 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { createClient } from "@supabase/supabase-js";
 import "./NavBar.css";
 
-// 🔹 Supabase configuration
+
 const SUPABASE_URL = "https://vqknuxdcxrzqpwrfholw.supabase.co";
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZxa251eGRjeHJ6cXB3cmZob2x3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjEyMDk3MjYsImV4cCI6MjA3Njc4NTcyNn0.sxBFHomezK5IsnuOY8lpVnKmeEX7SmAFvloUupS0yoQ";
@@ -18,7 +18,7 @@ const NavBar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // 🔹 Check for Supabase session
+  
   useEffect(() => {
     const checkSession = async () => {
       const {
@@ -36,7 +36,7 @@ const NavBar = () => {
 
     checkSession();
 
-    // Listen for auth state changes (login/logout)
+    
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -52,7 +52,7 @@ const NavBar = () => {
     return () => subscription.unsubscribe();
   }, []);
 
-  // 🔹 Logout using Supabase
+  
   const handleLogout = useCallback(async () => {
     if (!isAuthenticated) {
       console.warn("User is not authenticated. Cannot log out.");
@@ -68,11 +68,11 @@ const NavBar = () => {
       localStorage.clear();
       sessionStorage.clear();
 
-      // Optional: logout from Google completely
+      
       window.open("https://accounts.google.com/logout", "_blank");
 
       setIsAuthenticated(false);
-      navigate("/"); // Redirect to login page
+      navigate("/"); 
     } catch (error) {
       console.error("Logout failed:", error.message);
     }
