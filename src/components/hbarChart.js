@@ -106,17 +106,7 @@ class ApexChart extends React.Component {
       console.error('Error fetching data:', error);
     }
   };
-
-  // return(isAuthenticated?) {
-  //   while (isAuthenticated) {
-  //     return (
-  //       <div>
-  //       < /NavBar>
-  //       </div>
-  //     );
-  //   } 
-  // }
-
+  
   render() {
     return (
       <div className="apex-chart-container">
