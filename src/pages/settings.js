@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import './settings.css';
+// import storage from '../utils/safeLocalStorage'; // adjust relative path if necessary
+
 
 const SettingsPage = () => {
   const [settings, setSettings] = useState(() => {
-    const saved = localStorage.getItem('settings');
+    const saved = storage.getItem('settings');
+// ...
+storage.setItem('settings', JSON.stringify(settings));
+
     return saved
       ? JSON.parse(saved)
       : {

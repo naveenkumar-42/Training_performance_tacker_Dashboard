@@ -5,6 +5,7 @@ import { FaHome, FaUser, FaChartBar } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
 import { createClient } from "@supabase/supabase-js";
 import "./NavBar.css";
+// import storage from '../utils/safeLocalStorage';
 
 
 const SUPABASE_URL = "https://vqknuxdcxrzqpwrfholw.supabase.co";

@@ -2,6 +2,14 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
 import { FcGoogle } from "react-icons/fc";
+// at top of Login.js
+// import storage from '../utils/safeLocalStorage'; // <-- adjust path
+
+// replace occurrences:
+// storage.setItem("userSession", JSON.stringify(session));
+// const storedSession = storage.getItem("userSession");
+
+
 import "./Login.css";
 
 // 🔹 Supabase configuration
